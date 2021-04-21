@@ -1,0 +1,21 @@
+#░█████╗░██╗░░░░░░█████╗░░█████╗░██████╗░██╗████████╗████████╗██╗░░░██╗
+#██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔══██╗██║╚══██╔══╝╚══██╔══╝╚██╗░██╔╝
+#███████║██║░░░░░███████║██║░░╚═╝██████╔╝██║░░░██║░░░░░░██║░░░░╚████╔╝░
+#██╔══██║██║░░░░░██╔══██║██║░░██╗██╔══██╗██║░░░██║░░░░░░██║░░░░░╚██╔╝░░
+#██║░░██║███████╗██║░░██║╚█████╔╝██║░░██║██║░░░██║░░░░░░██║░░░░░░██║░░░
+#╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░░░░╚═╝░░░░░░╚═╝░░░
+
+font:
+  normal:
+    family: Hack Nerd Font Mono  
+    style: Regular
+  bold:
+    family: Hack Nerd Font Mono  
+    style: Bold
+  italic:
+    family: Hack Nerd Font Mono  
+    style: italic
+  size: 18
+
+alt_send_esc: false  # fix some problems with ALT key on mac os
+background_opacity: 0.9999  # fix lag with Mission Control's animations on mac os
