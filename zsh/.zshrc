@@ -5,6 +5,7 @@
 #███████╗██████╔╝██║░░██║██║░░██║╚█████╔╝
 #╚══════╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░
 
+
 # COMPLETION
 autoload -U compinit; compinit
 _comp_options+=(globdots) # With hidden files
@@ -41,4 +42,11 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 
 # PLUGINS
+fpath=($ZDOTDIR/plugins $fpath)
+
+
+# VI MODE
+bindkey -v
+export KEYTIMEOUT=1
+autoload -Uz cursor_mode; cursor_mode  # change cursor type
 
