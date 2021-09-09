@@ -6,121 +6,58 @@
 "╚═╝░░╚══╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝
 
 
-" --------- Vim configuration ----------
-syntax on
-set number relativenumber
-
-" Indentation
-set expandtab
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set smartindent
-
-set cursorline
-set noerrorbells
-set nowrap
-set smartcase
-set noswapfile
-set nobackup
-set incsearch
-set undodir=~/.vim/undodir
-set undofile
-"set spell
-set encoding=UTF-8
-
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-
 " --------- Plugins ----------
 call plug#begin('~/.vim/plugged')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" comments
 Plug 'preservim/nerdcommenter'
-Plug 'mbbill/undotree'
-Plug 'sheerun/vim-polyglot'
+
+" lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'folke/trouble.nvim'  " better code errors style
+
+" completion and auto-brackets
+Plug 'nvim-lua/completion-nvim'
+Plug 'windwp/nvim-autopairs'
+
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " tmux & vim moves
 Plug 'christoomey/vim-tmux-navigator'
 
-" python
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+" file tree
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
-
-" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
-
-" themes
-Plug 'morhetz/gruvbox'
-Plug 'KeitaNakamura/neodark.vim'
-
-Plug 'vim-airline/vim-airline'
-Plug 'mhinz/vim-startify'
+" theme
+Plug 'gruvbox-community/gruvbox'
+Plug 'ayu-theme/ayu-vim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
 
+" --------- Colorscheme ----------
+set termguicolors
+"colorscheme gruvbox
+let ayucolor="dark"
+colorscheme ayu
 
-" --------- Key Maps ----------
+
+" --------- Keymaps ----------
 let mapleader = " "
 
-" fzf
-nnoremap <C-p> :Files<CR>
-
-" copy
+" copy to clipboard
 noremap <C-c> "+yy"
 
-" undotree
-nnoremap <leader>u :UndotreeShow<CR>
-
-" move lines
-nnoremap <A-k> :m .-2<CR>==
-nnoremap <A-j> :m .+1<CR>==
-
-" resize windows
+" resize window
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
-
-" remove highligth after search
-"nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-" pydocstring
-nmap <silent> <leader>pd <Plug>(pydocstring)
-
-" Use ESC to exit insert mode in :term
-tnoremap <Esc> <C-\><C-n>
-
-
-
-" --------- Plugins Configuration ----------
-" vim colorscheme
-set termguicolors
-set background=dark
-"let g:gruvbox_contrast_dark = 'hard'
-let g:neodark#background = '#202020'
-colorscheme neodark
-
-" airline
-source $HOME/.config/nvim/plug-config/airline.vim
-
-" coc
-source $HOME/.config/nvim/plug-config/coc.vim
-
-" coc extensions
-let g:coc_global_extensions = [
-    \ 'coc-python',
-    \ 'coc-explorer',
-    \ 'coc-marketplace',
-    \ 'coc-vimlsp'
-  \ ]
-
-" signigfy
-let g:signify_sign_show_count = 0
-let g:signify_sign_show_text = 1
-let g:signify_sign_change = '~'
