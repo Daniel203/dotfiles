@@ -31,10 +31,11 @@ end
 
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { "pyright"}
+local servers = { "pyright", "clangd"}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup { on_attach = on_attach }
 end
+
 
 -- Formatting
 lspconfig.efm.setup{}
@@ -52,6 +53,7 @@ end
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
+vim.cmd [[autocmd BufWritePre *.* lua vim.lsp.buf.formatting_seq_sync()]]
 
 
 -- diagnostic display
