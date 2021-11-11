@@ -15,7 +15,7 @@ source $ZDOTDIR/completion.zsh
 # PROMPT STYLE
 #fpath=($ZDOTDIR/prompt $fpath)
 #autoload -Uz prompt_purification_setup; prompt_purification_setup
-#
+
 fpath=($ZDOTDIR/pure $fpath)
 autoload -U promptinit; promptinit
 prompt pure
