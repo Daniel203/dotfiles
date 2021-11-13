@@ -3,5 +3,5 @@ nvim/.vim
 nvim/.config/nvim/.vim/undodir
 
 zsh/.config/zsh/.zshhistory
-zsh/.config/zsh/.zshcompdump
+zsh/.config/zsh/.zcompdump
 
