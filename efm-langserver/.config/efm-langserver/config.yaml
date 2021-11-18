@@ -23,7 +23,7 @@ tools:
 
   cppcheck-lint: &cppcheck-lint
     prefix: cppcheck
-    lint-command: 'cppcheck --quiet --force --enable=style --error-exitcode=1 ${INPUT}'
+    lint-command: 'cppcheck --quiet --std --force --enable=style --error-exitcode=1 ${INPUT}'
     lint-stdin: false
     lint-formats:
       - '%f:%l:%c: %m'
