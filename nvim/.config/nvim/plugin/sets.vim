@@ -8,11 +8,6 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
 
-" Indentaions for specific files
-autocmd FileType c setlocal ts=2 sts=2 sw=2
-autocmd FileType cpp setlocal ts=2 sts=2 sw=2
-autocmd FileType h setlocal ts=2 sts=2 sw=2
-
 set noshowmode
 set cursorline
 set noerrorbells
