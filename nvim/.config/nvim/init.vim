@@ -46,6 +46,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " Git integration
 Plug 'tpope/vim-fugitive'
 
+" Undotree
+Plug 'mbbill/undotree'
+
 " file tree
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
