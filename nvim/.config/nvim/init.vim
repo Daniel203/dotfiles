@@ -68,6 +68,7 @@ call plug#end()
 
 " --------- Colorscheme ----------
 set termguicolors
+let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
 "let ayucolor="dark"
 "colorscheme ayu
@@ -76,8 +77,9 @@ colorscheme gruvbox
 " --------- Keymaps ----------
 let mapleader = " "
 
-" copy to clipboard
-noremap <C-c> "+yy"
+" copy and paste to/from clipboard
+noremap <C-c> "+y
+noremap <C-p> "+p
 
 " resize window
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>

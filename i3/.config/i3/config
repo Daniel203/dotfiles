@@ -208,6 +208,9 @@ bar {
 gaps inner 7
 default_border pixel 5
 
+# Picom
+exec_always --no-startup-id picom &
+
 
 ########################################################
 # PLASMA INTEGRATION
