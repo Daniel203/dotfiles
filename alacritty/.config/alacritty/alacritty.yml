@@ -6,22 +6,26 @@
 #╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░░░░╚═╝░░░░░░╚═╝░░░
 
 font:
+  size: 9
   normal:
-    family: Hack Nerd Font Mono
-    style: Regular
+    #family: Hack Nerd Font Mono
     #family: DroidSansMono Nerd Font Mono
-    #style: Regular
+    #family: Fira Code
+    family: IBMPlexMono
+    style: Regular
   bold:
-    family: Hack Nerd Font Mono  
+    #family: Hack Nerd Font Mono  
+    ##family: Droid Sans Mono Nerd Font 
+    #family: Fira Code
+    family: IBMPlexMono
     style: Bold
-    ##family: Droid Sans Mono Nerd Font 
-    ##style: Bold
   italic:
-    family: Hack Nerd Font Mono  
+    #family: Hack Nerd Font Mono  
+    #family: Droid Sans Mono Nerd Font 
+    #family: Fira Code
+    family: IBMPlexMono
     style: Italic
-    ##family: Droid Sans Mono Nerd Font 
-    ##style: italic
-    size: 11 
+    #style: italic
 
 alt_send_esc: false  # fix some problems with ALT key on mac os
 background_opacity: 0.999  # fix lag with Mission Control's animations on mac os

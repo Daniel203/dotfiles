@@ -19,7 +19,7 @@ set incsearch
 set undodir=~/.config/nvim/.vim/undodir
 set undofile
 set scrolloff=8
-set ttimeoutlen=100
+set ttimeoutlen=0
 set updatetime=200
 set encoding=UTF-8
 
