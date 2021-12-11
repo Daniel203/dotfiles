@@ -1,4 +1,4 @@
-session_name: programmazione-avanzata
+session_name: advent-of-code
 
 windows:
 # terminal
@@ -8,7 +8,7 @@ windows:
     automatic-rename: 'off'
   panes:
   - focus: 'true'
-  start_directory: /home/daniel/Scuola/ProgrammazioneAvanzata
+  start_directory: /home/daniel/Coding/advent-of-code/Advent-of-Code-2021
   window_name: terminal
 
 # nvim
@@ -17,7 +17,5 @@ windows:
     automatic-rename: 'off'
   panes:
   - focus: 'true'
-  start_directory: /home/daniel/Scuola/ProgrammazioneAvanzata
-  shell_command_before:
-    - nvim 
+  start_directory: /home/daniel/Coding/advent-of-code/Advent-of-Code-2021
   window_name: nvim
