@@ -48,3 +48,6 @@ autoload -Uz cursor_mode; cursor_mode  # change cursor type
 
 # hdmi audio output alias
 alias hao="pactl set-card-profile 0 output:hdmi-stereo"
+
+# set keyboard "speed"
+xset r rate 300 50

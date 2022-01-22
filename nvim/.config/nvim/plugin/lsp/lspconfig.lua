@@ -25,23 +25,11 @@ local on_attach = function(client, bufnr)
 
 end
 
-
--- Use a loop to conveniently both setup defined servers
--- and map buffer local keybindings when the language server attaches
-local servers = { "pyright", "clangd"}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup { 
-    on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-end
-
-
 -- Formatting
 lspconfig.efm.setup{}
 
 
--- Style errors and warnings
+---- Style errors and warnings
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 
 for type, icon in pairs(signs) do
@@ -50,13 +38,13 @@ for type, icon in pairs(signs) do
 end
 
 
--- You will likely want to reduce updatetime which affects CursorHold
--- note: this setting is global and should be set only once
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
+---- You will likely want to reduce updatetime which affects CursorHold
+---- note: this setting is global and should be set only once
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float({focusable=false})]]
 vim.cmd [[autocmd BufWritePre *.* lua vim.lsp.buf.formatting_seq_sync()]]
 
 
--- diagnostic display
+---- diagnostic display
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
       prefix = "",
@@ -64,5 +52,5 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
   },
   signs = true,
   underline = true,
-  update_in_insert = true,
+  --update_in_insert = true, -- cause a graphical glitch, the letter disappear when typing
 })
