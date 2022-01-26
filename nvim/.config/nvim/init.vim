@@ -18,8 +18,7 @@ Plug 'preservim/nerdcommenter'
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'folke/trouble.nvim'  " better code errors style
+Plug 'williamboman/nvim-lsp-installer'
 
 " completion
 Plug 'hrsh7th/cmp-nvim-lsp'
