@@ -1,0 +1,23 @@
+session_name: snake_game
+
+windows:
+# terminal
+- focus: 'true'
+  layout: aefd,147x40,0,0,0
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+  start_directory: /home/daniel/Coding/GuiC++/
+  window_name: terminal
+
+# nvim
+- layout: c89e,71x39,0,0,1
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+  start_directory: /home/daniel/Coding/GuiC++
+  shell_command_before:
+    - nvim 
+  window_name: nvim

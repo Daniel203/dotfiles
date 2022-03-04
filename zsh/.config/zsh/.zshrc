@@ -41,6 +41,11 @@ setopt PUSHD_SILENT         # Do not print the directory stack after pushd or po
 fpath=($ZDOTDIR/plugins $fpath)
 
 
+# FLUTTER
+export PATH="$PATH:`pwd`/development/flutter/bin"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
+
 # VI MODE
 bindkey -v
 export KEYTIMEOUT=1
@@ -51,3 +56,7 @@ alias hao="pactl set-card-profile 0 output:hdmi-stereo"
 
 # set keyboard "speed"
 xset r rate 300 50
+
+# change keyboard layout
+alias italian="setxkbmap it"
+alias dvorak="setxkbmap dvorak"

@@ -2,4 +2,7 @@ nvim/.config/nvim/.vim
 
 zsh/.config/zsh/.zshhistory
 zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/.zdirs
+
+i3/.config/i3/i3blcoks/
 

@@ -121,7 +121,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminal"
-set $ws2 "2: Firefox"
+set $ws2 "2: Browser"
 set $ws3 "3"
 set $ws4 "4: Mail"
 set $ws5 "5"
@@ -158,6 +158,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10; workspace $ws10
 # open programs in specific workspace
 for_window [class="Alacritty"] move to workspace $ws1; workspace $ws1
 for_window [class="firefox"] move to workspace $ws2; workspace $ws2
+for_window [class="brave-browser"] move to workspace $ws2; workspace $ws2
 for_window [class="Mailspring"] move to workspace $ws4; workspace $ws4
 for_window [class="TelegramDesktop"] move to workspace $ws8; workspace $ws8
 for_window [class="Spotify"] move to workspace $ws9; workspace $ws9
@@ -288,16 +289,9 @@ set $volumestep 5
 #   Recommended: comment out this setting and omit the -s option to use default sink
 #   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}'
 #set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
 
 
 # Gnome implementations
 exec --no-startup-id /usr/lib/gsd-xsettings
 exec_always --no-startup-id gnome-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-=======
->>>>>>> origin/main
->>>>>>> stash
