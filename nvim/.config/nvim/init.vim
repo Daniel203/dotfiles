@@ -29,7 +29,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
-
 "  completion and auto-brackets
 "Plug 'nvim-lua/completion-nvim'
 Plug 'windwp/nvim-autopairs'
@@ -48,6 +47,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
+Plug 'github/copilot.vim'
 
 " Undotree
 Plug 'mbbill/undotree'
@@ -67,10 +67,14 @@ call plug#end()
 
 " --------- Colorscheme ----------
 set termguicolors
+set background=dark
+
 let g:gruvbox_contrast_dark="hard"
-colorscheme gruvbox
-"let ayucolor="dark"
-"colorscheme ayu
+"colorscheme gruvbox
+
+" ayucolor: dark, light, mirage 
+colorscheme ayu
+let ayucolor="dark"
 
 
 " --------- Keymaps ----------
@@ -83,3 +87,8 @@ noremap <C-p> "+p
 " resize window
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
+
+
+" github copilot
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true

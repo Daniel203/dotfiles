@@ -1,6 +1,9 @@
 require'nvim-tree'.setup {
     update_focused_file = {
-        enable = 1,
+        enable = true,
     },
-    lsp_diagnostic = 1,
+    render.highlight = {
+        enable = true,
+        hl_group = 'Tree',
+    },
 }
