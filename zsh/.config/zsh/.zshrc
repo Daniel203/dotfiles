@@ -39,10 +39,12 @@ setopt PUSHD_SILENT         # Do not print the directory stack after pushd or po
 
 # PLUGINS
 fpath=($ZDOTDIR/plugins $fpath)
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # FLUTTER
-export PATH="$PATH:`pwd`/development/flutter/bin"
+export PATH="$PATH:$HOME/gitClones/flutter/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 
@@ -60,3 +62,8 @@ xset r rate 300 50
 # change keyboard layout
 alias italian="setxkbmap it"
 alias dvorak="setxkbmap dvorak"
+
+# reverse search
+bindkey -v
+bindkey '^r' history-incremental-search-backward
+
