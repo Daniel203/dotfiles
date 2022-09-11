@@ -8,24 +8,11 @@
 font:
   size: 15
   normal:
-    #family: Hack Nerd Font Mono
-    #family: DroidSansMono Nerd Font Mono
-    #family: Fira Code
-    family: IBMPlexMono
-    style: Regular
+    family: Comic Mono
   bold:
-    #family: Hack Nerd Font Mono  
-    ##family: Droid Sans Mono Nerd Font 
-    #family: Fira Code
-    family: IBMPlexMono
-    style: Bold
+    family: Comic Mono
   italic:
-    #family: Hack Nerd Font Mono  
-    #family: Droid Sans Mono Nerd Font 
-    #family: Fira Code
-    family: IBMPlexMono
-    style: Italic
-    #style: italic
+    family: Comic Mono
 
 alt_send_esc: false  # fix some problems with ALT key on mac os
 window_opacity: 0.999  # fix lag with Mission Control's animations on mac os
