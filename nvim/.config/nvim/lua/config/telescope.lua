@@ -1,4 +1,5 @@
 local actions = require("telescope.actions")
+
 require("telescope").setup({
     defaults = {
         vimgrep_arguments = {
@@ -33,12 +34,4 @@ require("telescope").setup({
     }
 })
 
-require("telescope").load_extension("fzy_native")
-
-
-local cmd = vim.cmd
-cmd[[nnoremap <leader>ff <cmd>Telescope find_files<cr>]]
-cmd[[nnoremap <leader>fg <cmd>Telescope live_grep<cr>]]
-cmd[[nnoremap <leader>fb <cmd>Telescope buffers<cr>]]
-cmd[[nnoremap <leader>fh <cmd>Telescope help_tags<cr>]]
-
+--require("telescope").load_extension("fzy_native")

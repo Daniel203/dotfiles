@@ -1,7 +1,7 @@
 local cmp = require 'cmp'
 
 cmp.setup({
-    snippet = {expand = function(args) vim.fn["vsnip#anonymous"](args.body) end},
+    snippet = { expand = function(args) vim.fn["vsnip#anonymous"](args.body) end },
     mapping = {
         ['<Tab>'] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert
@@ -25,8 +25,7 @@ cmp.setup({
         })
     },
     sources = {
-        {name = 'nvim_lsp'}, {name = 'path'}, {name = 'copilot'},
-        {name = 'vsnip'}, {name = 'buffer'}
+        { name = 'nvim_lsp' }, { name = 'path' }, { name = 'copilot' },
+        { name = 'vsnip' }, { name = 'buffer' }
     }
 })
-
