@@ -6,13 +6,19 @@
 #╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░░░░╚═╝░░░░░░╚═╝░░░
 
 font:
-  size: 15
+  size: 18
   normal:
-    family: Comic Mono
+    #family: Comic Mono NF
+    family: IBM Plex Mono
   bold:
-    family: Comic Mono
+    #family: Comic Mono NF
+    family: IBM Plex Mono
   italic:
-    family: Comic Mono
+    #family: Comic Mono NF
+    family: IBM Plex Mono
+  offset:
+    x: 0
+    y: -1
 
 alt_send_esc: false  # fix some problems with ALT key on mac os
 window_opacity: 0.999  # fix lag with Mission Control's animations on mac os
@@ -20,3 +26,9 @@ window_opacity: 0.999  # fix lag with Mission Control's animations on mac os
 # true colors in tmux-nvim
 env:
   TERM: xterm-256color
+
+window:
+  padding:
+   x: 10
+   y: 10
+
