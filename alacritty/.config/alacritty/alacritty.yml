@@ -9,13 +9,13 @@ font:
   size: 18
   normal:
     #family: Comic Mono NF
-    family: IBM Plex Mono
+    family: IBM Plex Mono Medium
   bold:
     #family: Comic Mono NF
     family: IBM Plex Mono
   italic:
     #family: Comic Mono NF
-    family: IBM Plex Mono
+    family: IBM Plex Mono Medium
   offset:
     x: 0
     y: -1
