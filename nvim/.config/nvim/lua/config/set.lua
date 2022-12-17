@@ -25,12 +25,6 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
--- clipboard global
-vim.opt.clipboard = 'unnamedplus'
-
--- Give more space for displaying messages.
---vim.opt.cmdheight = 2
-
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.opt.updatetime = 50

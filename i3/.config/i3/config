@@ -199,8 +199,11 @@ bar {
 }
 
 # gaps and border
-gaps inner 7
+gaps inner 10
 default_border pixel 5
+
+for_window [class="firefox"] border pixel 5
+for_window [class="TelegramDesktop"] border pixel 5
 
 # Picom
 exec_always --no-startup-id picom &

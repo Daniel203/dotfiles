@@ -9,13 +9,10 @@
 # COMPLETION
 autoload -U compinit; compinit
 _comp_options+=(globdots) # With hidden files
-source $ZDOTDIR/completion.zsh
+source $ZDOTDIR/plugins/completion.zsh
 
 
-# PROMPT STYLE
-#fpath=($ZDOTDIR/prompt $fpath)
-#autoload -Uz prompt_purification_setup; prompt_purification_setup
-
+# STYLE
 fpath=($ZDOTDIR/pure $fpath)
 autoload -U promptinit; promptinit
 prompt pure
@@ -62,6 +59,7 @@ xset r rate 300 50
 # change keyboard layout
 alias italian="setxkbmap it"
 alias dvorak="setxkbmap dvorak"
+# set dvorak
 
 # reverse search
 bindkey -v
