@@ -68,7 +68,11 @@ return require('packer').startup(function(use)
 
     -- Git integration
     use "tpope/vim-fugitive"
+    use 'lewis6991/gitsigns.nvim'
 
     --Zen mode
     use "folke/zen-mode.nvim"
+
+    -- Indentation lines
+    use "lukas-reineke/indent-blankline.nvim"
 end)
