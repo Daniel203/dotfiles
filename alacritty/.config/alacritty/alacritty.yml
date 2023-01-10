@@ -18,7 +18,7 @@ font:
     family: IBM Plex Mono Medium
   offset:
     x: 0
-    y: -1
+    y: 0 
 
 alt_send_esc: false  # fix some problems with ALT key on mac os
 window_opacity: 0.999  # fix lag with Mission Control's animations on mac os
@@ -26,7 +26,6 @@ window_opacity: 0.999  # fix lag with Mission Control's animations on mac os
 # true colors in tmux-nvim
 env:
   TERM: xterm-256color
-
 
 schemes:
   tokyo-night: &tokyo-night
