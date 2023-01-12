@@ -1,6 +1,16 @@
-vim.g.gruvbox_contrast_dark = "hard"
 vim.opt.background = "dark"
-vim.cmd("colorscheme tokyonight-night")
+
+-- gruvbox
+vim.g.gruvbox_contrast_dark = "hard"
+
+-- gruvbox-baby
+vim.g.gruvbox_baby_function_style = "NONE"
+vim.g.gruvbox_baby_keyword_style = "NONE"
+vim.g.gruvbox_baby_transparent_mode = 1
+vim.g.gruvbox_baby_use_original_palette = true
+
+-- set colorscheme
+vim.cmd("colorscheme gruvbox-baby")
 
 -- set comments in italic
 vim.cmd("highlight Comment cterm=italic gui=italic");

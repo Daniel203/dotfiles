@@ -35,3 +35,9 @@ vim.opt.shortmess:append("c")
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+-- set spell on
+vim.o.spell = true
+
+-- global status line
+vim.o.laststatus = 3

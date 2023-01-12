@@ -4,15 +4,16 @@ return require('packer').startup(function(use)
     use "wbthomason/packer.nvim"
 
     -- themes and customization
-    use "hoob3rt/lualine.nvim"
     use "gruvbox-community/gruvbox"
+    use "luisiacc/gruvbox-baby"
     use "ayu-theme/ayu-vim"
     use "folke/tokyonight.nvim"
     use { "catppuccin/nvim", as = "catppuccin" }
-    use "ryanoasis/vim-devicons"
     use "edeneast/nightfox.nvim"
     use "savq/melange"
     use "sainnhe/everforest"
+    use "hoob3rt/lualine.nvim"
+    use "ryanoasis/vim-devicons"
 
     -- helpers
     use "preservim/nerdcommenter"
