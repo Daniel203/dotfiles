@@ -23,10 +23,10 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- Move to another window
-vim.keymap.set("n", "<leader>h", "<C-w>h")
-vim.keymap.set("n", "<leader>l", "<C-w>l")
-vim.keymap.set("n", "<leader>j", "<C-w>j")
-vim.keymap.set("n", "<leader>k", "<C-w>k")
+--vim.keymap.set("n", "<leader>h", "<C-w>h")
+--vim.keymap.set("n", "<leader>l", "<C-w>l")
+--vim.keymap.set("n", "<leader>j", "<C-w>j")
+--vim.keymap.set("n", "<leader>k", "<C-w>k")
 
 -- Paste without resetting the paste buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
@@ -44,5 +44,5 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Move up and down the quickfix list
-vim.keymap.set("n", "<A-j>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>cprev<CR>zz")

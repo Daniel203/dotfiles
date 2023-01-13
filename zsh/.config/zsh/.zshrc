@@ -38,6 +38,8 @@ setopt PUSHD_SILENT         # Do not print the directory stack after pushd or po
 fpath=($ZDOTDIR/plugins $fpath)
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export PATH="$PATH:$ZDOTDIR/plugins"
+
 
 # FLUTTER
 export PATH="$PATH:$HOME/gitClones/flutter/bin"
@@ -64,4 +66,7 @@ alias dvorak="setxkbmap dvorak"
 # reverse search
 bindkey -v
 bindkey '^r' history-incremental-search-backward
+
+# tmux-sessionizer
+bindkey -s ^f "tmux-sessionizer\n"
 
