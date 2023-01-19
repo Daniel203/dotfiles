@@ -18,10 +18,15 @@ autoload -U promptinit; promptinit
 prompt pure
 
 
-# GENERAL ALIASES
+# ALIASES
 alias ll="ls -al"
 alias ls="ls -p"
 alias ..="cd .."
+# hdmi audio output alias
+alias hao="pactl set-card-profile 0 output:hdmi-stereo"
+# change keyboard layout
+alias italian="setxkbmap it"
+alias dvorak="setxkbmap dvorak"
 
 
 # ZSH DIRECTORY STACK
@@ -46,22 +51,16 @@ export PATH="$PATH:$HOME/gitClones/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
+# RUST
+export PATH="$PATH:$HOME/.cargo/bin/"
 
 # VI MODE
 bindkey -v
 export KEYTIMEOUT=1
 autoload -Uz cursor_mode; cursor_mode  # change cursor type
 
-# hdmi audio output alias
-alias hao="pactl set-card-profile 0 output:hdmi-stereo"
-
 # set keyboard "speed"
 xset r rate 300 50
-
-# change keyboard layout
-alias italian="setxkbmap it"
-alias dvorak="setxkbmap dvorak"
-# set dvorak
 
 # reverse search
 bindkey -v
@@ -70,3 +69,5 @@ bindkey '^r' history-incremental-search-backward
 # tmux-sessionizer
 bindkey -s ^f "tmux-sessionizer\n"
 
+# reverse the suggestion list with S-Tab
+bindkey -M menuselect '^[[Z' reverse-menu-complete

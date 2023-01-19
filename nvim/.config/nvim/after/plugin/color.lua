@@ -10,7 +10,7 @@ vim.g.gruvbox_baby_transparent_mode = 1
 vim.g.gruvbox_baby_use_original_palette = true
 
 -- set colorscheme
-vim.cmd("colorscheme gruvbox-baby")
+vim.cmd("colorscheme gruvbox")
 
 -- set comments in italic
 vim.cmd("highlight Comment cterm=italic gui=italic");

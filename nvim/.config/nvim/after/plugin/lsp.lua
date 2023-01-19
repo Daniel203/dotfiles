@@ -6,6 +6,7 @@ lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("v", "<leader>ga", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>fl", "<cmd>LspZeroFormat<CR>")
 

@@ -124,7 +124,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10; workspace $ws10
 for_window [class="Alacritty"] move to workspace $ws1; workspace $ws1
 for_window [class="firefox"] move to workspace $ws2; workspace $ws2
 for_window [class="brave-browser"] move to workspace $ws2; workspace $ws2
-for_window [class="kdeconnect.app"] move to workspace $ws3; workspace $ws2
+for_window [class="kdeconnect-app"] move to workspace $ws3; workspace $ws5
 for_window [class="Mailspring"] move to workspace $ws4; workspace $ws4
 for_window [class="TelegramDesktop"] move to workspace $ws8; workspace $ws8
 for_window [class="Spotify"] move to workspace $ws9; workspace $ws9
@@ -181,10 +181,8 @@ bar {
 
 # gaps and border
 gaps inner 10
-default_border pixel 5
-
-for_window [class="firefox"] border pixel 5
-for_window [class="TelegramDesktop"] border pixel 5
+#default_border pixel 5
+for_window [class=.*] border pixel 5
 
 # Picom
 exec_always --no-startup-id picom &

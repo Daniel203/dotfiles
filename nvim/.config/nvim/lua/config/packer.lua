@@ -76,4 +76,10 @@ return require('packer').startup(function(use)
 
     -- Indentation lines
     use "lukas-reineke/indent-blankline.nvim"
+
+    -- Markdown
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end)
