@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/ayu-vim",
     url = "https://github.com/ayu-theme/ayu-vim"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -114,15 +109,15 @@ _G.packer_plugins = {
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  everforest = {
-    loaded = true,
-    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/everforest",
-    url = "https://github.com/sainnhe/everforest"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["git-worktree.nvim"] = {
+    loaded = true,
+    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/git-worktree.nvim",
+    url = "https://github.com/ThePrimeagen/git-worktree.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -159,6 +154,11 @@ _G.packer_plugins = {
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -169,20 +169,20 @@ _G.packer_plugins = {
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  melange = {
+  neovim = {
     loaded = true,
-    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/melange",
-    url = "https://github.com/savq/melange"
+    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/neovim",
+    url = "https://github.com/rose-pine/neovim"
   },
   nerdcommenter = {
     loaded = true,
     path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
   },
-  ["nightfox.nvim"] = {
+  nvim = {
     loaded = true,
-    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/edeneast/nightfox.nvim"
+    path = "/home/daniel/.config/local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },

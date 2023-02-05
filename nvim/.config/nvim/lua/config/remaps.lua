@@ -29,7 +29,7 @@ vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 --vim.keymap.set("n", "<leader>k", "<C-w>k")
 
 -- Paste without resetting the paste buffer
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", "\"_dp")
 
 -- Copy to the system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")

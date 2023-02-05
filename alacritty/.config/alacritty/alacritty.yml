@@ -6,19 +6,19 @@
 #╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░░░░╚═╝░░░░░░╚═╝░░░
 
 font:
-  size: 17
+  size: 20
   normal:
     #family: Comic Mono NF
     #family: IBM Plex Mono Medium
-    family: JetBrains Mono Medium
+    family: JetBrains Mono Light
   bold:
     #family: Comic Mono NF
     #family: IBM Plex Mono
-    family: JetBrains Mono Medium
+    family: JetBrains Mono Light
   italic:
     #family: Comic Mono NF
     #family: IBM Plex Mono Medium
-    family: JetBrains Mono Medium
+    family: JetBrains Mono Light
   offset:
     x: 0
     y: 0 
@@ -115,4 +115,52 @@ schemes:
       cyan:    '0x8ec07c'
       white:   '0xebdbb2'
 
-colors: *gruvbox
+  rose-pine: &rose-pine
+    # Default colors
+    primary:
+      background: "0x191724"
+      foreground: "0xe0def4"
+
+    # Normal colors
+    normal:
+      black: "0x26233a"
+      red: "0xeb6f92"
+      green: "0x31748f"
+      yellow: "0xf6c177"
+      blue: "0x9ccfd8"
+      magenta: "0xc4a7e7"
+      cyan: "0xebbcba"
+      white: "0xe0def4"
+
+    # Bright colors
+    bright:
+      black: "0x6e6a86"
+      red: "0xeb6f92"
+      green: "0x31748f"
+      yellow: "0xf6c177"
+      blue: "0x9ccfd8"
+      magenta: "0xc4a7e7"
+      cyan: "0xebbcba"
+      white: "0xe0def4"
+
+    cursor:
+      text: "0xe0def4"
+      cursor: "0x524f67"
+    vi_mode_cursor:
+      text: "0xe0def4"
+      cursor: "0x524f67"
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: "0xe0def4"
+      background: "0x403d52"
+    hints:
+      start:
+        foreground: "#908caa"
+        background: "#1f1d2e"
+      end:
+        foreground: "#6e6a86"
+        background: "#1f1d2e"
+
+colors: *rose-pine
