@@ -1,5 +1,4 @@
 vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
     use "wbthomason/packer.nvim"
 
@@ -8,6 +7,7 @@ return require('packer').startup(function(use)
     use "ryanoasis/vim-devicons"
     use "gruvbox-community/gruvbox"
     use "luisiacc/gruvbox-baby"
+    use "embark-theme/vim"
     use "ayu-theme/ayu-vim"
     use "folke/tokyonight.nvim"
     use "catppuccin/nvim"
@@ -69,6 +69,7 @@ return require('packer').startup(function(use)
     use "tpope/vim-fugitive"
     use "lewis6991/gitsigns.nvim"
     use "ThePrimeagen/git-worktree.nvim"
+    use "github/copilot.vim"
 
     --Zen mode
     use "folke/zen-mode.nvim"

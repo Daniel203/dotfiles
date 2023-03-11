@@ -23,7 +23,6 @@ font:
     x: 0
     y: 0 
 
-alt_send_esc: false  # fix some problems with ALT key on mac os
 window_opacity: 0.999  # fix lag with Mission Control's animations on mac os
 
 # true colors in tmux-nvim

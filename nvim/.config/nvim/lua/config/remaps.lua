@@ -44,5 +44,5 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Move up and down the quickfix list
-vim.keymap.set("n", "<leader>j", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<A-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>zz")

@@ -22,8 +22,10 @@ prompt pure
 alias ll="ls -al"
 alias ls="ls -p"
 alias ..="cd .."
+
 # hdmi audio output alias
 alias hao="pactl set-card-profile 0 output:hdmi-stereo"
+
 # change keyboard layout
 alias italian="setxkbmap it"
 alias dvorak="setxkbmap dvorak"

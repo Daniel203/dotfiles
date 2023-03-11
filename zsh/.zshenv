@@ -10,3 +10,8 @@ export SAVEHIST=10000                   # Maximum events in history file
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+export LIBVA_DRIVER_NAME=iHD
+export MOZ_DISABLE_RDD_SANDBOX=1
+export MOZ_X11_EGL=1
+#export MOZ_ENABLE_WAYLAND=1

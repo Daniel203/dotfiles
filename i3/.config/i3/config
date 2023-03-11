@@ -24,7 +24,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 
 # kill focused window
@@ -122,6 +123,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10; workspace $ws10
 
 # open programs in specific workspace
 for_window [class="Alacritty"] move to workspace $ws1; workspace $ws1
+for_window [class="kitty"] move to workspace $ws1; workspace $ws1
 for_window [class="firefox"] move to workspace $ws2; workspace $ws2
 for_window [class="brave-browser"] move to workspace $ws2; workspace $ws2
 for_window [class="kdeconnect.app"] move to workspace $ws5; workspace $ws5
