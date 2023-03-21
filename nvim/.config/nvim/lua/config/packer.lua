@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
     use "folke/tokyonight.nvim"
     use "catppuccin/nvim"
     use "rose-pine/neovim"
+    use "rebelot/kanagawa.nvim"
 
     -- helpers
     use "preservim/nerdcommenter"

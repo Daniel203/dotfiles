@@ -22,6 +22,7 @@ prompt pure
 alias ll="ls -al"
 alias ls="ls -p"
 alias ..="cd .."
+alias zsh="TERM='xterm-256color' ssh"
 
 # hdmi audio output alias
 alias hao="pactl set-card-profile 0 output:hdmi-stereo"
