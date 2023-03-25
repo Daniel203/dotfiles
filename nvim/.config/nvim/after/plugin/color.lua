@@ -15,7 +15,7 @@ require("rose-pine").setup({
 })
 
 -- set colorscheme
-vim.cmd.colorscheme("rose-pine");
+vim.cmd.colorscheme("kanagawa-dragon");
 
 -- set comments in italic
 vim.cmd("highlight Comment cterm=italic gui=italic");

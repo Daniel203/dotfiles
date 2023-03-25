@@ -15,7 +15,10 @@ return require('packer').startup(function(use)
     use "rebelot/kanagawa.nvim"
 
     -- helpers
-    use "preservim/nerdcommenter"
+    use {
+        'numToStr/Comment.nvim',
+        config = function() require('Comment').setup() end
+    }
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
