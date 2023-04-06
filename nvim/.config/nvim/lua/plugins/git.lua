@@ -3,14 +3,20 @@ local git_worktree_keys = {
     { "<leader>gws", function() require("telescope").extensions.git_worktree.git_worktrees() end },
 }
 
-local function git_signsrconfig()
+local function git_signs_config()
     require('gitsigns').setup {
         signs = {
-            add = { text = '+' },
-            change = { text = '~' },
-            delete = { text = '_' },
-            topdelete = { text = '‾' },
+            -- add = { text = '+' },
+            -- change = { text = '~' },
+            -- delete = { text = '_' },
+            -- topdelete = { text = '‾' },
+            -- changedelete = { text = '~' },
+            add          = { text = '│' },
+            change       = { text = '│' },
+            delete       = { text = '_' },
+            topdelete    = { text = '‾' },
             changedelete = { text = '~' },
+            untracked    = { text = '┆' },
         },
     }
 end

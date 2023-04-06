@@ -22,6 +22,13 @@ local function lsp_zero_config()
 
     lsp.preset("recommended")
 
+    lsp.set_sign_icons({
+        error = '✘',
+        warn = '▲',
+        hint = '⚑',
+        info = '»'
+    })
+
     lsp.on_attach(function(client, bufnr)
         local opts = { buffer = bufnr, remap = false }
 
@@ -77,7 +84,6 @@ local function lsp_zero_config()
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<CR>"] = cmp.mapping.confirm(cmp_select),
-
         ["<Tab>"] = cmp.mapping(function(fallback)
             if luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
