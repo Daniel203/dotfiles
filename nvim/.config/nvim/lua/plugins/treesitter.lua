@@ -1,4 +1,4 @@
-local function treesitter_config() 
+local function treesitter_config()
     require("nvim-treesitter.configs").setup {
         ensure_installed = { "c", "cpp", "rust", "python", "lua", "json", "html" },
         highlight = {

@@ -39,7 +39,7 @@ vim.opt.colorcolumn = "100"
 vim.g.mapleader = " "
 
 -- set spell on
-vim.o.spell = true
+vim.o.spell = false
 
 -- global status line
 vim.o.laststatus = 3

@@ -1,10 +1,10 @@
 vim.opt.background = "dark"
 
 -- set colorscheme
-vim.cmd.colorscheme("rose-pine");
+vim.cmd.colorscheme("kanagawa-dragon");
 
 -- set comments in italic
-vim.cmd("highlight Comment cterm=italic gui=italic");
+-- vim.cmd("highlight Comment cterm=italic gui=italic");
 
 -- highlight the current line number
 vim.opt.cursorline = true

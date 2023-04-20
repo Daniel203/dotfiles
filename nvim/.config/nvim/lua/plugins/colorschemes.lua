@@ -6,7 +6,14 @@ end
 
 local function rose_pine_config()
     require("rose-pine").setup({
-        rose_pine_disable_italic_comment = true,
+        disable_italics = true,
+    })
+end
+
+local function kanagawa_config()
+    require("kanagawa").setup({
+        commentStyle = { italic = false },
+        keywordStyle = { italic = false },
     })
 end
 
@@ -15,8 +22,12 @@ return {
     "ayu-theme/ayu-vim",
     "folke/tokyonight.nvim",
     "catppuccin/nvim",
-    "rebelot/kanagawa.nvim",
-
+    {
+        "rebelot/kanagawa.nvim",
+        lazy = false,
+        priority = 1000,
+        config = kanagawa_config,
+    },
     {
         "ellisonleao/gruvbox.nvim",
         config = gruvbox_config,
@@ -25,6 +36,6 @@ return {
         "rose-pine/neovim",
         lazy = false,
         priority = 1000,
-        config = rose_pine_config,   
+        config = rose_pine_config,
     },
 }

@@ -6,19 +6,19 @@
 #╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░░░░╚═╝░░░░░░╚═╝░░░
 
 font:
-  size: 20
+  size: 22
   normal:
-    #family: Comic Mono NF
+    family: Comic Mono NF
     #family: IBM Plex Mono Medium
-    family: JetBrains Mono Light
+    # family: JetBrains Mono Light
   bold:
-    #family: Comic Mono NF
+    family: Comic Mono NF
     #family: IBM Plex Mono
-    family: JetBrains Mono Light
+    # family: JetBrains Mono Light
   italic:
-    #family: Comic Mono NF
+    family: Comic Mono NF
     #family: IBM Plex Mono Medium
-    family: JetBrains Mono Light
+    # family: JetBrains Mono Light
   offset:
     x: 0
     y: 0 
