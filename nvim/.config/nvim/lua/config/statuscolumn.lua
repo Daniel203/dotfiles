@@ -1,24 +1,6 @@
 local M = {}
 _G.Status = M
 
--- Print contents of `tbl`, with indentation.
--- `indent` sets the initial level of indentation.
-local function tprint(tbl, indent)
-    if not indent then indent = 0 end
-    for k, v in pairs(tbl) do
-        local formatting = string.rep("  ", indent) .. k .. ": "
-        if type(v) == "table" then
-            print(formatting)
-            tprint(v, indent + 1)
-        elseif type(v) == 'boolean' then
-            print(formatting .. tostring(v))
-        else
-            print(formatting .. v)
-        end
-    end
-end
-
-
 function M.get_signs()
     local buf = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
     return vim.tbl_map(
@@ -42,7 +24,7 @@ function M.column()
     end
 
     local components = {
-        dap_breakpoint and (dap_breakpoint.text) or "  ",
+        dap_breakpoint and (dap_breakpoint.text) or "",
         sign and ("%#" .. sign.texthl .. "#" .. sign.text .. "%*") or "  ",
         [[%=]],
         [[%{&nu?(&rnu&&v:relnum?v:relnum:v:lnum):''} ]],

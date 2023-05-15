@@ -40,3 +40,6 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 -- Move up and down the quickfix list
 vim.keymap.set("n", "<A-j>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>zz")
+
+-- Replace word under cursor
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

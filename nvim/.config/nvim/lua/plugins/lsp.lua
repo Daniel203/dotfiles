@@ -35,20 +35,13 @@ local function lsp_zero_config()
         vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, opts)
         vim.keymap.set("v", "<leader>ga", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>fl", "<cmd>LspZeroFormat<CR>")
+        vim.keymap.set("n", "<leader>fl", vim.lsp.buf.formatting, opts)
+        vim.keymap.set("v", "<leader>fl", vim.lsp.buf.format, opts)
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition)
         vim.keymap.set("n", "gI", vim.lsp.buf.implementation)
         vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition)
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-
-        -- format on save if possiblse
-        if client.server_capabilities.document_formatting then
-            vim.cmd [[augroup Format]]
-            vim.cmd [[autocmd! * <buffer>]]
-            vim.cmd [[autocmd BufWritePre *.* LspZeroFormat]]
-            vim.cmd [[augroup END]]
-        end
     end)
 
     lsp.ensure_installed({
@@ -72,11 +65,11 @@ local function lsp_zero_config()
     local luasnip = require("luasnip")
     local cmp = require("cmp")
 
-    local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    end
+    -- local has_words_before = function()
+    --     unpack = unpack or table.unpack
+    --     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    --     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    -- end
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -87,8 +80,6 @@ local function lsp_zero_config()
         ["<Tab>"] = cmp.mapping(function(fallback)
             if luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
-            elseif has_words_before() then
-                cmp.complete()
             else
                 fallback()
             end
