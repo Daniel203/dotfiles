@@ -35,13 +35,14 @@ local function lsp_zero_config()
         vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, opts)
         vim.keymap.set("v", "<leader>ga", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>fl", vim.lsp.buf.formatting, opts)
-        vim.keymap.set("v", "<leader>fl", vim.lsp.buf.format, opts)
+        vim.keymap.set("n", "<leader>fl", "<cmd>LspZeroFormat<CR>")
+        vim.keymap.set("v", "<leader>fl", vim.lsp.buf.format)
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition)
         vim.keymap.set("n", "gI", vim.lsp.buf.implementation)
         vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition)
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
     end)
 
     lsp.ensure_installed({

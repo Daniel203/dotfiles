@@ -43,3 +43,6 @@ vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>zz")
 
 -- Replace word under cursor
 vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- tmux sessionizer
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
