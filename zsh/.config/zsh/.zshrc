@@ -28,8 +28,8 @@ alias zsh="TERM='xterm-256color' ssh"
 alias hao="pactl set-card-profile 0 output:hdmi-stereo"
 
 # change keyboard layout
-alias italian="setxkbmap it"
-alias dvorak="setxkbmap dvorak"
+alias aoeu="setxkbmap it"
+alias asdf="setxkbmap dvorak"
 
 
 # ZSH DIRECTORY STACK

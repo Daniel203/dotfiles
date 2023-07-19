@@ -193,8 +193,9 @@ exec_always --no-startup-id picom &
 exec --no-startup-id xss-lock
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wallpaper.jpg
-
+# exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wallpaper.jpg
+# exec_always --no-startup-id feh --bg-scale https://minimalistic-wallpaper.demolab.com/?random
+exec_always --no-startup-id feh --bg-scale https://raw.githubusercontent.com/DenverCoder1/minimalistic-wallpaper-collection/main/images/unknown-bird-landing-on-water.jpg
 
 # Gnome implementations
 exec --no-startup-id /usr/lib/gsd-xsettings

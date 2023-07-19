@@ -1,7 +1,6 @@
 local function gruvbox_config()
-    require("gruvbox").setup({
-        contrast = "hard",
-    })
+    vim.g.gruvbox_contrast_dark = "hard"
+    vim.g.gruvbox_contrast_light = "hard"
 end
 
 local function rose_pine_config()
@@ -22,6 +21,7 @@ return {
     "ayu-theme/ayu-vim",
     "folke/tokyonight.nvim",
     "catppuccin/nvim",
+    'ribru17/bamboo.nvim',
     {
         "rebelot/kanagawa.nvim",
         lazy = false,
@@ -29,7 +29,7 @@ return {
         config = kanagawa_config,
     },
     {
-        "ellisonleao/gruvbox.nvim",
+        "gruvbox-community/gruvbox",
         config = gruvbox_config,
     },
     {

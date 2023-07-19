@@ -10,18 +10,18 @@ font:
   normal:
     # family: Comic Mono NF
     # family: IBM Plex Mono Medium
-    # family: JetBrains Mono Light
-    family: UbuntuMono
+    family: JetBrains Mono Light
+    # family: UbuntuMono
   bold:
     # family: Comic Mono NF
     # family: IBM Plex Mono
-    # family: JetBrains Mono Light
-    family: UbuntuMono
+    family: JetBrains Mono Light
+    # family: UbuntuMono
   italic:
     # family: Comic Mono NF
     # family: IBM Plex Mono Medium
-    # family: JetBrains Mono Light
-    family: UbuntuMono
+    family: JetBrains Mono Light
+    # family: UbuntuMono
   offset:
     x: 0
     y: 0 

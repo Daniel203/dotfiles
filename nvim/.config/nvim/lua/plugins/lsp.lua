@@ -62,6 +62,14 @@ local function lsp_zero_config()
         }
     })
 
+    lsp.configure("ltex", {
+        settings = {
+            ltex = {
+                language = "it",
+            }
+        }
+    })
+
     -- setup nvim-cmp and luasnip
     local luasnip = require("luasnip")
     local cmp = require("cmp")
