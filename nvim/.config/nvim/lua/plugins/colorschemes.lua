@@ -22,6 +22,7 @@ return {
     "folke/tokyonight.nvim",
     "catppuccin/nvim",
     'ribru17/bamboo.nvim',
+    'projekt0n/github-nvim-theme',
     {
         "rebelot/kanagawa.nvim",
         lazy = false,

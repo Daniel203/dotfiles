@@ -70,15 +70,24 @@ local function lsp_zero_config()
         }
     })
 
+    lsp.configure("rust_analyzer", {
+        settings = {
+            ["rust-analyzer"] = {
+                procMacro = {
+                    igored = {
+                        leptos_macr= {
+                            "server",
+                            "component",
+                        }
+                    }
+                },
+            }
+        }
+    })
+
     -- setup nvim-cmp and luasnip
     local luasnip = require("luasnip")
     local cmp = require("cmp")
-
-    -- local has_words_before = function()
-    --     unpack = unpack or table.unpack
-    --     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    --     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-    -- end
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local cmp_mappings = lsp.defaults.cmp_mappings({

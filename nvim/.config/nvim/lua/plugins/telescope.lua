@@ -39,6 +39,7 @@ local telescope_config = function()
                 '--column',
                 '--smart-case'
             },
+            file_ignore_patterns = {"node_modules", "bin", "obj", "dll", "dist", "packages"},
             file_sorter = require("telescope.sorters").get_fzy_sorter,
             prompt_prefix = " >",
             color_devicons = true,
