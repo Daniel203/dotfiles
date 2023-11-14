@@ -6,6 +6,8 @@
 #╚══════╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░
 
 
+export PATH=$(echo "$PATH" | sed -e 's/:\/mnt[^:]*//g') # strip out problematic Windows %PATH%
+
 # COMPLETION
 autoload -U compinit; compinit
 _comp_options+=(globdots) # With hidden files
@@ -63,7 +65,7 @@ export KEYTIMEOUT=1
 autoload -Uz cursor_mode; cursor_mode  # change cursor type
 
 # set keyboard "speed"
-xset r rate 300 50
+# xset r rate 300 50
 
 # reverse search
 bindkey -v
@@ -74,3 +76,4 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 # reverse the suggestion list with S-Tab
 bindkey -M menuselect '^[[Z' reverse-menu-complete
+

@@ -6,11 +6,6 @@ local git_worktree_keys = {
 local function git_signs_config()
     require('gitsigns').setup {
         signs = {
-            -- add = { text = '+' },
-            -- change = { text = '~' },
-            -- delete = { text = '_' },
-            -- topdelete = { text = '‾' },
-            -- changedelete = { text = '~' },
             add          = { text = '│' },
             change       = { text = '│' },
             delete       = { text = '_' },
@@ -25,6 +20,7 @@ local function copilot_settings()
     vim.g.copilot_no_tab_map = true
     vim.g.copilot_assume_mapped = true
     vim.g.copilot_tab_fallback = ""
+    vim.g.copilot_filetypes = { ['markdown'] = true }
     vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 end
 

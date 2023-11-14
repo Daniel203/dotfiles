@@ -1,96 +1,84 @@
 local lsp_zero_dependencies = {
-    -- LSP Support
-    { "neovim/nvim-lspconfig" },
-    { "williamboman/mason.nvim" },
-    { "williamboman/mason-lspconfig.nvim" },
-
-    -- Autocompletion
-    { "hrsh7th/nvim-cmp" },
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
-    { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-nvim-lua" },
+}
 
-    -- Snippets
-    { "L3MON4D3/LuaSnip" },
-    { "rafamadriz/friendly-snippets" },
+local nvim_cmp_dependencies = {
+    { "L3MON4D3/LuaSnip" }
 }
 
 local function lsp_zero_config()
-    local lsp = require("lsp-zero")
+    local lsp_zero = require('lsp-zero')
+    lsp_zero.extend_lspconfig()
 
-    lsp.preset("recommended")
+    lsp_zero.on_attach(
+        function(client, bufnr)
+            lsp_zero.default_keymaps({ buffer = bufnr })
 
-    lsp.set_sign_icons({
+            local opts = { buffer = bufnr, remap = false }
+            vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, opts)
+            vim.keymap.set("v", "<leader>ga", vim.lsp.buf.code_action, opts)
+            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+            vim.keymap.set("n", "<leader>fl", "<cmd>LspZeroFormat<CR>")
+            vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+        end
+    )
+
+    lsp_zero.set_sign_icons({
         error = '✘',
         warn = '▲',
         hint = '⚑',
         info = '»'
     })
 
-    lsp.on_attach(function(client, bufnr)
-        local opts = { buffer = bufnr, remap = false }
-
-        vim.keymap.set("n", "<leader>ga", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("v", "<leader>ga", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>fl", "<cmd>LspZeroFormat<CR>")
-        vim.keymap.set("v", "<leader>fl", vim.lsp.buf.format)
-
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-        vim.keymap.set("n", "gI", vim.lsp.buf.implementation)
-        vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition)
-        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-
-    end)
-
-    lsp.ensure_installed({
-        "efm",
-        "lua_ls",
-        "rust_analyzer",
-    })
-
-    -- Fix Undefined global "vim"
-    lsp.configure("lua_ls", {
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { "vim" }
-                }
-            }
+    require("mason").setup({})
+    require("mason-lspconfig").setup({
+        handlers = {
+            lsp_zero.default_setup,
         }
     })
 
-    lsp.configure("ltex", {
-        settings = {
-            ltex = {
-                language = "it",
-            }
-        }
+    -- Setup diagnostics
+    vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        update_in_insert = false,
+        underline = true,
+        severity_sort = true,
+        float = true,
     })
 
-    lsp.configure("rust_analyzer", {
+    -- Setup rust analyzer to ignore #component and #server marcos
+    lsp_zero.configure("rust_analyzer", {
         settings = {
             ["rust-analyzer"] = {
                 procMacro = {
-                    igored = {
-                        leptos_macr= {
+                    ignored = {
+                        leptos_macro = {
                             "server",
                             "component",
-                        }
-                    }
+                        },
+                    },
                 },
             }
         }
     })
+end
 
-    -- setup nvim-cmp and luasnip
+-- setup nvim-cmp and luasnip
+local function nvim_cmp_config()
     local luasnip = require("luasnip")
     local cmp = require("cmp")
+    local cmp_action = require("lsp-zero").cmp_action()
+
+    local has_words_before = function()
+        unpack = unpack or table.unpack
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
-    local cmp_mappings = lsp.defaults.cmp_mappings({
+
+    local cmp_mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
         ["<C-Space>"] = cmp.mapping.complete(),
@@ -111,26 +99,31 @@ local function lsp_zero_config()
         end, { "i", "s" }),
     })
 
-    lsp.setup_nvim_cmp({
-        mapping = cmp_mappings
-    })
-
-
-    -- setup lsp
-    lsp.setup()
-
-    vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        update_in_insert = false,
-        underline = true,
-        severity_sort = true,
-        float = true,
+    cmp.setup({
+        mapping = cmp_mapping,
     })
 end
 
 return {
-    "VonHeikemen/lsp-zero.nvim",
-    dependencies = lsp_zero_dependencies,
-    config = lsp_zero_config,
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
+    -- LSP Support
+    {
+        "VonHeikemen/lsp-zero.nvim",
+        dependencies = lsp_zero_dependencies,
+        config = lsp_zero_config,
+    },
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            { "hrsh7th/cmp-nvim-lsp" },
+        }
+    },
+    -- Autocompletion
+    { "saadparwaiz1/cmp_luasnip" },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = nvim_cmp_dependencies,
+        config = nvim_cmp_config
+    },
 }

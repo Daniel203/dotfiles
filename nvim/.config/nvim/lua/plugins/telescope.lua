@@ -30,6 +30,7 @@ local telescope_config = function()
 
     require("telescope").setup({
         defaults = {
+            file_ignore_patterns = {"node_modules", "bin", "obj", "dll", "dist", "packages"},
             vimgrep_arguments = {
                 'rg',
                 '--color=never',
