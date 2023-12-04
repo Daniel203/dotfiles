@@ -77,3 +77,6 @@ bindkey -s ^f "tmux-sessionizer\n"
 # reverse the suggestion list with S-Tab
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
+
+# NVM 
+source $HOME/.config/nvm/nvm.sh

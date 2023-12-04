@@ -17,8 +17,17 @@ local function indent_blankline_config()
             -- highlight = highlight,
             remove_blankline_trail = false,
         },
+        indent = { char='┆', },
         scope = { enabled = false },
     }
+end
+
+local harpoon_config =  function() 
+    require("harpoon").setup({
+        menu = {
+            width = vim.api.nvim_win_get_width(0) - 50,
+        }
+    })
 end
 
 return {
@@ -44,6 +53,7 @@ return {
     {
         "ThePrimeagen/harpoon",
         keys = harpoon_keys,
+        config = harpoon_config,
     },
 
     -- Indentation lines
