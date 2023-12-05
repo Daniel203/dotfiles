@@ -3,7 +3,8 @@ local lsp_zero_dependencies = {
 }
 
 local nvim_cmp_dependencies = {
-    { "L3MON4D3/LuaSnip" }
+    { "L3MON4D3/LuaSnip" },
+    { "rafamadriz/friendly-snippets" }
 }
 
 local function lsp_zero_config()
@@ -101,7 +102,12 @@ local function nvim_cmp_config()
 
     cmp.setup({
         mapping = cmp_mapping,
+        sources = {
+            { name = "luasnip" },
+        },
     })
+
+    require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 return {
