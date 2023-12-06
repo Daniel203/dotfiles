@@ -103,6 +103,7 @@ local function nvim_cmp_config()
     cmp.setup({
         mapping = cmp_mapping,
         sources = {
+            { name = "nvim_lsp" },
             { name = "luasnip" },
         },
     })
