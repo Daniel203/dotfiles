@@ -5,6 +5,7 @@ vim.keymap.set("n", "<leader>ld", ":Leet desc<CR>")
 
 return {
     "kawre/leetcode.nvim",
+    lazy = true,
     build = ":TSUpdate html",
     dependencies = {
         "nvim-telescope/telescope.nvim",

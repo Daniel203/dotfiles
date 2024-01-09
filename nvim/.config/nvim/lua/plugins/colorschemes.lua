@@ -17,26 +17,31 @@ local function kanagawa_config()
 end
 
 return {
-    "embark-theme/vim",
-    "ayu-theme/ayu-vim",
-    "folke/tokyonight.nvim",
-    "catppuccin/nvim",
-    'ribru17/bamboo.nvim',
-    'savq/melange-nvim',
-    'projekt0n/github-nvim-theme',
+    {
+        "embark-theme/vim",
+        lazy = true,
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = true,
+    },
+    {
+        "catppuccin/nvim",
+        lazy = true,
+    },
     {
         "rebelot/kanagawa.nvim",
-        lazy = false,
-        priority = 1000,
+        lazy = true,
         config = kanagawa_config,
     },
     {
+        lazy = true,
         "gruvbox-community/gruvbox",
         config = gruvbox_config,
     },
     {
         "rose-pine/neovim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = rose_pine_config,
     },

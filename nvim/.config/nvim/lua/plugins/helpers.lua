@@ -17,12 +17,12 @@ local function indent_blankline_config()
             -- highlight = highlight,
             remove_blankline_trail = false,
         },
-        indent = { char='┆', },
+        indent = { char = '┆', },
         scope = { enabled = false },
     }
 end
 
-local harpoon_config =  function() 
+local harpoon_config = function()
     require("harpoon").setup({
         menu = {
             width = vim.api.nvim_win_get_width(0) - 50,
@@ -46,9 +46,6 @@ return {
     -- Undotree
     "mbbill/undotree",
 
-    --Zen mode
-    "folke/zen-mode.nvim",
-
     -- Harpoon
     {
         "ThePrimeagen/harpoon",
@@ -62,9 +59,9 @@ return {
         config = indent_blankline_config,
     },
 
-    -- Markdown
-    ({
-        "iamcco/markdown-preview.nvim",
-        build = function() vim.fn["mkdp#util#install"]() end,
-    }),
+    -- show LSP server loading
+    {
+        "j-hui/fidget.nvim",
+        opts = {},
+    }
 }
