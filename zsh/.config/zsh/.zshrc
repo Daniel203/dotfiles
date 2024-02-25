@@ -29,7 +29,7 @@ alias hao="pactl set-card-profile 0 output:hdmi-stereo"
 
 # change keyboard layout
 alias aoeu="setxkbmap us"
-alias asdf="setxkbmap dvorak"
+alias asdf="setxkbmap -layout us -variant dvorak"
 
 
 # ZSH DIRECTORY STACK
