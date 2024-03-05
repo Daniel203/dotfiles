@@ -60,8 +60,8 @@ return {
     },
 
     -- show LSP server loading
-    {
-        "j-hui/fidget.nvim",
-        opts = {},
-    }
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     opts = {},
+    -- }
 }

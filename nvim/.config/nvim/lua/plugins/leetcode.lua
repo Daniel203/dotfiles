@@ -2,10 +2,11 @@
 vim.keymap.set("n", "<leader>lr", ":Leet run<CR>")
 vim.keymap.set("n", "<leader>li", ":Leet info<CR>")
 vim.keymap.set("n", "<leader>ld", ":Leet desc<CR>")
+vim.keymap.set("n", "<leader>lt", ":Leet test<CR>")
 
 return {
     "kawre/leetcode.nvim",
-    lazy = true,
+    -- lazy = true,
     build = ":TSUpdate html",
     dependencies = {
         "nvim-telescope/telescope.nvim",
@@ -17,6 +18,8 @@ return {
     },
     opts = {
         lang = "python3",
-        directory = "/home/linux/Coding/leetcode",
+        storage ={
+            storage = "/home/linux/Coding/leetcode",
+        },
     },
 }

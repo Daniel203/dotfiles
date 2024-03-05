@@ -129,6 +129,23 @@ return {
                 "rafamadriz/friendly-snippets",
             }
         },
+        {
+            "nvimtools/none-ls.nvim",
+            config = function()
+                local null_ls = require("null-ls")
+
+                null_ls.setup({
+                    sources = {
+                        null_ls.builtins.formatting.prettier,
+                        null_ls.builtins.diagnostics.eslint_d,
+                    },
+                })
+
+                vim.keymap.set('n', '<space>fl', function() vim.lsp.buf.format { async = true } end, opts)
+                vim.keymap.set('v', '<space>fl', function() vim.lsp.buf.format { async = true } end, opts)
+            end
+        },
+
     },
 
     config = config,
