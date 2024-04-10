@@ -5,7 +5,7 @@
 
     "modules-left": ["custom/power", "hyprland/workspaces", "hyprland/mode"],
     "modules-center": ["clock"],
-    "modules-right": [ "custom/spotify", "pulseaudio", "backlight", "battery", "tray"],
+    "modules-right": [ "custom/spotify", "tray", "pulseaudio", "backlight", "battery", "custom/notification"],
     "hyprland/mode": {
         "format": " {}"
     },
@@ -53,7 +53,7 @@
             "disconnected": [""]
         },
         "on-click": "termite -e nmtui",
-    "tooltip": false
+        "tooltip": false
     },
     "pulseaudio": {
         "format": "{volume} {icon}",
@@ -125,6 +125,26 @@
         "format": " ⏻ ",
         "tooltip": false,
         "on-click": "wlogout --protocol layer-shell"
-    }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
 }
 
