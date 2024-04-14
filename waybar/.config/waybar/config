@@ -5,7 +5,7 @@
 
     "modules-left": ["custom/power", "hyprland/workspaces", "hyprland/mode"],
     "modules-center": ["clock"],
-    "modules-right": [ "custom/spotify", "pulseaudio", "backlight", "battery", "tray", "custom/notification"],
+    "modules-right": [ "custom/spotify", "pulseaudio", "backlight", "battery", "tray", "hyprland/language", "custom/notification"],
     "hyprland/mode": {
         "format": " {}"
     },
@@ -42,7 +42,7 @@
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
-    
+
     "network": {
         "format": "{icon}",
         "format-alt": "{ipaddr}/{cidr} {icon}",
@@ -119,7 +119,7 @@
         "tooltip": false
     },
     "tray": {
-        "icon-size": 18
+        "icon-size": 16,
     },
     "custom/power": {
         "format": " ⏻ ",
@@ -146,5 +146,12 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "us-in",
+        "format-en-dvorak": "us-dv",
+        "keyboard-name": "at-translated-set-2-keyboard",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    }
 }
 

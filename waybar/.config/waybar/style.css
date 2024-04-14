@@ -70,8 +70,11 @@ window#waybar.solo {
     color:      rgba(238, 46, 36, 1);
 }
 
+#language {
+    margin:     0px 5px;
+}
 
-#tray menu {
-    color:      rgba(217, 216, 216, 1);
-    background: rgba(35, 31, 32, 0.8);
+#tray {
+    color:      rgba(238, 46, 36, 1);
+    margin:     0 5px;
 }

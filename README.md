@@ -8,13 +8,13 @@ Personal repository to store config files
 
  - For hyprland 
 ```sh
-> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kenshi wlogout waybar 
+> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kenshi wlogout waybar grim slurp wl-clipboard
 ```
 
  - Visualize volume/brightness change
 ```sh
 > paru -S swayosd-git
-> sudo systemctl enable --now swayosd-libinput-backend.service
+> sudo systemctl enable --now swayosd-libinput-backend.service 
 ```
 
 ## Suggested commands
