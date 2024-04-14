@@ -11,12 +11,21 @@ local harpoon_keys = {
     { "<C-A-s>",   function() require("harpoon.ui").nav_file(8) end },
 }
 
+local harpoon_config = function()
+    require("harpoon").setup({
+        menu = {
+            width = vim.api.nvim_win_get_width(0) - 50,
+        }
+    })
+end
+
 local function indent_blankline_config()
     require('ibl').setup {
         whitespace = {
             -- highlight = highlight,
             remove_blankline_trail = false,
         },
+        indent = { char = '┆', },
         scope = { enabled = false },
     }
 end
@@ -44,6 +53,7 @@ return {
     {
         "ThePrimeagen/harpoon",
         keys = harpoon_keys,
+        config = harpoon_config,
     },
 
     -- Indentation lines

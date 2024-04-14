@@ -5,7 +5,7 @@
 
     "modules-left": ["custom/power", "hyprland/workspaces", "hyprland/mode"],
     "modules-center": ["clock"],
-    "modules-right": [ "custom/spotify", "tray", "pulseaudio", "backlight", "battery", "custom/notification"],
+    "modules-right": [ "custom/spotify", "pulseaudio", "backlight", "battery", "tray", "custom/notification"],
     "hyprland/mode": {
         "format": " {}"
     },

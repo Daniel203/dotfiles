@@ -38,6 +38,17 @@ local function config()
         }
     })
 
+    lspconfig.tsserver.setup({
+        -- capabilities = capabilities,
+        on_attach = function(client)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
+        settings = {
+            diagnostics = { ignoredCodes = { 6133, 80001 } } -- Ignore "unused variable" and "convert to ES6 module" errors
+        }
+    })
+
+
     -- Setup diagnostics
     vim.diagnostic.config({
         severity_sort = true,
@@ -128,6 +139,25 @@ return {
                 "saadparwaiz1/cmp_luasnip",
                 "rafamadriz/friendly-snippets",
             }
+        },
+        {
+            "nvimtools/none-ls.nvim",
+            config = function()
+                local null_ls = require("null-ls")
+
+                local diagnostics = null_ls.builtins.diagnostics
+                local formatting = null_ls.builtins.formatting
+
+                null_ls.setup({
+                    sources = {
+                        formatting.prettier,
+                        -- diagnostics.eslint_d,
+                    },
+                })
+
+                vim.keymap.set('n', '<space>fl', function() vim.lsp.buf.format { async = true } end)
+                vim.keymap.set('v', '<space>fl', function() vim.lsp.buf.format { async = true } end)
+            end
         },
     },
 
