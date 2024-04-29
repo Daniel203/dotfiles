@@ -4,12 +4,12 @@ Personal repository to store config files
 ## App to install 
 ```sh
 > sudo pacman -S  playerctl sysstat acpi blueman gnome-flashback zsh neovim tmux alacritty kitty picom xclip npm telegram-desktop
-> yay -S timeshift-autosnap 
 ```
 
  - For hyprland 
 ```sh
 > sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kanshi brightnessctl
+> paru -S wdisplays
 ```
 
  - Visualize volume/brightness change
@@ -36,3 +36,17 @@ Set global dark theme
 ```
 
 Use nwg-look to set the default icon pach to morewaita
+
+## Auto snapshot
+```sh
+> sudo pacman -S grub-btrfs
+> yay -S timeshift-autosnap 
+> sudo systemctl start grub-btrfsd
+> sudo systemctl enable grub-btrfsd
+```sh
+
+Edit the process files
+```sh
+> sudo systemctl edit --full grub-btrfsd 
+```
+`ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto`
