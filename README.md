@@ -3,12 +3,13 @@ Personal repository to store config files
 
 ## App to install 
 ```sh
-> sudo pacman -S  playerctl sysstat acpi gnome-flashback zsh nvim tmux alacritty kitty picom xclip
+> sudo pacman -S  playerctl sysstat acpi blueman gnome-flashback zsh neovim tmux alacritty kitty picom xclip npm telegram-desktop
+> yay -S timeshift-autosnap 
 ```
 
  - For hyprland 
 ```sh
-> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kenshi wlogout waybar grim slurp wl-clipboard
+> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kanshi brightnessctl
 ```
 
  - Visualize volume/brightness change
@@ -24,3 +25,14 @@ Set global dark theme
 > gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 > gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
+
+
+## In case I would use ags
+```sh 
+> yay -S aylurs-gtk-shell 
+> sudo npm install -g sass bun
+> sudo pacman -S fd ttf-ubuntu-mono-nerd nwg-look
+> paru -S matugen morewaita swww hyprpicker
+```
+
+Use nwg-look to set the default icon pach to morewaita

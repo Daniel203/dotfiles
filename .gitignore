@@ -7,3 +7,6 @@ zsh/.config/zsh/.zdirs
 i3/.config/i3/i3blcoks/
 
 nvim/.config/nvim/lazy-lock.json
+
+ags/.config/ags/node_modules
+ags/.config/ags/types

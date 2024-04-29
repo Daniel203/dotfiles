@@ -73,6 +73,11 @@
         "return-type": "json",
         "exec": "~/.config/waybar/modules/spotify.sh",
         "exec-if": "pgrep spotify",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10, 
+        "on-scroll-right": "playerctl next",
+        "on-scroll-left": "playerctl previous",
         "escape": true
     },
     "custom/storage": {
@@ -148,8 +153,8 @@
     },
     "hyprland/language": {
         "format": "{}",
-        "format-en": "us-in",
-        "format-en-dvorak": "us-dv",
+        "format-en": "us",
+        "format-en-dvorak": "dv",
         "keyboard-name": "at-translated-set-2-keyboard",
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     }
