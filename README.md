@@ -8,7 +8,7 @@ Personal repository to store config files
 
  - For hyprland 
 ```sh
-> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kanshi brightnessctl
+> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kanshi brightnessctl xdg-desktop-portal-gtk     
 > paru -S wdisplays
 ```
 

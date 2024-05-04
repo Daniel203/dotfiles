@@ -92,6 +92,7 @@ export default {
         reboot: "system-reboot-symbolic",
         logout: "system-log-out-symbolic",
         shutdown: "system-shutdown-symbolic",
+        hibernate: "daytime-sunset-symbolic"
     },
     recorder: {
         recording: "media-record-symbolic",

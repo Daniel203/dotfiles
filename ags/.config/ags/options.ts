@@ -168,6 +168,7 @@ const options = mkOptions(OPTIONS, {
         reboot: opt("systemctl reboot"),
         logout: opt("pkill Hyprland"),
         shutdown: opt("shutdown now"),
+        hibernate: opt("systemctl hibernate"),
         layout: opt<"line" | "box">("line"),
         labels: opt(true),
     },
@@ -179,7 +180,7 @@ const options = mkOptions(OPTIONS, {
         },
         width: opt(380),
         position: opt<"left" | "center" | "right">("right"),
-        networkSettings: opt("gnome-control-center"),
+        networkSettings: opt(["bash", "-c","XDG_CURRENT_DESKTOP=GNOME; gnome-control-center"]),
         media: {
             monochromeIcon: opt(true),
             coverSize: opt(100),
