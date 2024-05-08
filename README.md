@@ -43,10 +43,15 @@ Use nwg-look to set the default icon pach to morewaita
 > yay -S timeshift-autosnap 
 > sudo systemctl start grub-btrfsd
 > sudo systemctl enable grub-btrfsd
-```sh
-
+```
 Edit the process files
 ```sh
 > sudo systemctl edit --full grub-btrfsd 
 ```
 `ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto`
+
+## Problems with screen share
+``` 
+> systemctl --user status pipewire wireplumber
+```
+In case enable and start
