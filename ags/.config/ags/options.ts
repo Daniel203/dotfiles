@@ -1,5 +1,7 @@
-import { type BarWidget } from "widget/bar/Bar"
 import { opt, mkOptions } from "lib/option"
+import { distro } from "lib/variables"
+import { icon } from "lib/utils"
+import icons from "lib/icons"
 
 const options = mkOptions(OPTIONS, {
     autotheme: opt(true),
@@ -46,8 +48,8 @@ const options = mkOptions(OPTIONS, {
 
         shadows: opt(true),
         padding: opt(7),
-        spacing: opt(5),
-        radius: opt(15),
+        spacing: opt(12),
+        radius: opt(11),
     },
 
     transition: opt(200),
@@ -60,20 +62,18 @@ const options = mkOptions(OPTIONS, {
     bar: {
         flatButtons: opt(true),
         position: opt<"top" | "bottom">("top"),
-        corners: opt(false),
+        corners: opt(true),
+        transparent: opt(false),
         layout: {
-            start: opt<BarWidget[]>([
+            start: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "powermenu",
-                // "launcher",
                 "workspaces",
-                // "taskbar",
                 "expander",
-                // "messages",
             ]),
-            center: opt<BarWidget[]>([
+            center: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "date",
             ]),
-            end: opt<BarWidget[]>([
+            end: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "media",
                 "expander",
                 "systray",
@@ -86,13 +86,13 @@ const options = mkOptions(OPTIONS, {
         launcher: {
             icon: {
                 colored: opt(true),
-                icon: opt("nixos"),
+                icon: opt(icon(distro.logo, icons.ui.search)),
             },
             label: {
                 colored: opt(false),
                 label: opt(" Applications"),
             },
-            action: opt(() => App.toggleWindow("applauncher")),
+            action: opt(() => App.toggleWindow("launcher")),
         },
         date: {
             format: opt("%d.%m.%y - %H:%M"),
@@ -107,9 +107,10 @@ const options = mkOptions(OPTIONS, {
             low: opt(30),
         },
         workspaces: {
-            workspaces: opt(10),
+            workspaces: opt(7),
         },
         taskbar: {
+            iconSize: opt(0),
             monochrome: opt(true),
             exclusive: opt(false),
         },
@@ -126,6 +127,7 @@ const options = mkOptions(OPTIONS, {
             monochrome: opt(true),
             preferred: opt("spotify"),
             direction: opt<"left" | "right">("right"),
+            format: opt("{artists} - {title}"),
             length: opt(40),
         },
         powermenu: {
@@ -134,32 +136,34 @@ const options = mkOptions(OPTIONS, {
         },
     },
 
-    applauncher: {
-        iconSize: opt(62),
+    launcher: {
         width: opt(0),
         margin: opt(80),
-        maxItem: opt(10),
+        nix: {
+            pkgs: opt("nixpkgs/nixos-unstable"),
+            max: opt(8),
+        },
+        sh: {
+            max: opt(16),
+        },
+        apps: {
+            iconSize: opt(62),
+            max: opt(6),
             favorites: opt([
-  //           [
-  //               "firefox",
-  //               "org.gnome.Nautilus",
-  //               "obsidian",
-  //               "spotify",
-		// "kitty"
-  //           ],
-  //           [
-  //               "betaflight-configurator",
-  //               "org.gnome.Calendar",
-  //               "discord",
-  //               "neovide",
-  //               "gimp",
-  //           ],
-        ]),  
+                [
+                    // "firefox",
+                    // "wezterm",
+                    // "org.gnome.Nautilus",
+                    // "org.gnome.Calendar",
+                    // "spotify",
+                ],
+            ]),
+        },
     },
 
     overview: {
         scale: opt(9),
-        workspaces: opt(10),
+        workspaces: opt(7),
         monochromeIcon: opt(true),
     },
 
@@ -189,6 +193,16 @@ const options = mkOptions(OPTIONS, {
 
     datemenu: {
         position: opt<"left" | "center" | "right">("center"),
+        weather: {
+            interval: opt(60_000),
+            unit: opt<"metric" | "imperial" | "standard">("metric"),
+            key: opt<string>(
+                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")?.key || "",
+            ),
+            cities: opt<Array<number>>(
+                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")?.cities || [],
+            ),
+        },
     },
 
     osd: {
@@ -215,7 +229,8 @@ const options = mkOptions(OPTIONS, {
 
     hyprland: {
         gaps: opt(2.4),
-        inactiveBorder: opt("333333ff"),
+        inactiveBorder: opt("#282828"),
+        gapsWhenOnly: opt(false),
     },
 })
 

@@ -2,7 +2,6 @@ import { icon } from "lib/utils"
 import icons from "lib/icons"
 import Progress from "./Progress"
 import brightness from "service/brightness"
-import type Gtk from "gi://Gtk?version=3.0"
 import options from "options"
 
 const audio = await Service.import("audio")
@@ -12,13 +11,13 @@ const DELAY = 2500
 
 function OnScreenProgress(vertical: boolean) {
     const indicator = Widget.Icon({
-        size: 32,
+        size: 42,
         vpack: "start",
     })
     const progress = Progress({
         vertical,
-        width: vertical ? 42 : 200,
-        height: vertical ? 200 : 42,
+        width: vertical ? 42 : 300,
+        height: vertical ? 300 : 42,
         child: indicator,
     })
 
@@ -95,7 +94,7 @@ export default (monitor: number) => Widget.Window({
     child: Widget.Box({
         css: "padding: 2px;",
         expand: true,
-        child: Widget.Overlay<Gtk.Widget>(
+        child: Widget.Overlay(
             { child: Widget.Box({ expand: true }) },
             Widget.Box({
                 hpack: progress.pack.h.bind(),

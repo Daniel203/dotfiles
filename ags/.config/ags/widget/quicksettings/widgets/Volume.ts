@@ -1,4 +1,3 @@
-import type Gtk from "gi://Gtk?version=3.0"
 import { type Stream } from "types/service/audio"
 import { Arrow, Menu } from "../ToggleButton"
 import { dependencies, icon, sh } from "lib/utils"
@@ -21,8 +20,14 @@ const VolumeIndicator = (type: Type = "speaker") => Widget.Button({
 const VolumeSlider = (type: Type = "speaker") => Widget.Slider({
     hexpand: true,
     draw_value: false,
-    on_change: ({ value, dragging }) => dragging && (audio[type].volume = value),
+    on_change: ({ value, dragging }) => {
+        if (dragging) {
+            audio[type].volume = value
+            audio[type].is_muted = false
+        }
+    },
     value: audio[type].bind("volume"),
+    class_name: audio[type].bind("is_muted").as(m => m ? "muted" : ""),
 })
 
 export const Volume = () => Widget.Box({
@@ -42,7 +47,7 @@ export const Volume = () => Widget.Box({
     ],
 })
 
-export const Microhone = () => Widget.Box({
+export const Microphone = () => Widget.Box({
     class_name: "slider horizontal",
     visible: audio.bind("recorders").as(a => a.length > 0),
     children: [
@@ -51,7 +56,7 @@ export const Microhone = () => Widget.Box({
     ],
 })
 
-const MixerItem = (stream: Stream) => Widget.Box<Gtk.Widget>(
+const MixerItem = (stream: Stream) => Widget.Box(
     {
         hexpand: true,
         class_name: "mixer-item horizontal",
@@ -64,7 +69,7 @@ const MixerItem = (stream: Stream) => Widget.Box<Gtk.Widget>(
                 : icons.fallback.audio
         }),
     }),
-    Widget.Box<Gtk.Widget>(
+    Widget.Box(
         { vertical: true },
         Widget.Label({
             xalign: 0,

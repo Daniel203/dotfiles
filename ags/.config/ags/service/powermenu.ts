@@ -2,7 +2,7 @@ import options from "options"
 
 const { sleep, reboot, logout, shutdown, hibernate } = options.powermenu
 
-export type Action = "sleep" | "reboot" | "logout" | "shutdown | hibernate" | "hibernate"
+export type Action = "sleep" | "reboot" | "hibernate" | "logout" | "shutdown"
 
 class PowerMenu extends Service {
     static {
@@ -16,15 +16,14 @@ class PowerMenu extends Service {
     #cmd = ""
 
     get title() { return this.#title }
-    get cmd() { return this.#cmd }
 
     action(action: Action) {
         [this.#cmd, this.#title] = {
             sleep: [sleep.value, "Sleep"],
             reboot: [reboot.value, "Reboot"],
+            hibernate: [hibernate.value, "Hibernate"],
             logout: [logout.value, "Log Out"],
             shutdown: [shutdown.value, "Shutdown"],
-            hibernate: [hibernate.value, "Hibernate"]
         }[action]
 
         this.notify("cmd")
@@ -37,8 +36,13 @@ class PowerMenu extends Service {
     readonly shutdown = () => {
         this.action("shutdown")
     }
+
+    readonly exec = () => {
+        App.closeWindow("verification")
+        Utils.exec(this.#cmd)
+    }
 }
 
 const powermenu = new PowerMenu
-globalThis["powermenu"] = powermenu
+Object.assign(globalThis, { powermenu })
 export default powermenu

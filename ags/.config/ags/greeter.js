@@ -9,10 +9,10 @@ try {
         "--external", "gi://*",
         "--external", "file://*",
     ])
+    await import(`file://${main}`)
 } catch (error) {
     console.error(error)
     App.quit()
 }
 
-const { default: config } = await import(`file://${main}`)
-export default config
+export { }
