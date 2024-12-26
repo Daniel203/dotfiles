@@ -5,7 +5,7 @@ import brightness from "service/brightness"
 import options from "options"
 
 const audio = await Service.import("audio")
-const { progress, microphone } = options.osd
+const { progress, microphone, volume } = options.osd
 
 const DELAY = 2500
 
@@ -51,7 +51,10 @@ function OnScreenProgress(vertical: boolean) {
         ), "notify::kbd")
         .hook(audio.speaker, () => show(
             audio.speaker.volume,
-            icon(audio.speaker.icon_name || "", icons.audio.type.speaker),
+            icon(
+                audio.speaker.is_muted ? icons.audio.volume.muted : audio.speaker.icon_name || "",
+                icons.audio.type.speaker,
+            ),
         ), "notify::volume")
 }
 
@@ -72,6 +75,35 @@ function MicrophoneMute() {
         if (mute !== audio.microphone.stream?.is_muted) {
             mute = audio.microphone.stream!.is_muted
             icon.icon = icons.audio.mic[mute ? "muted" : "high"]
+            revealer.reveal_child = true
+            count++
+
+            Utils.timeout(DELAY, () => {
+                count--
+                if (count === 0)
+                    revealer.reveal_child = false
+            })
+        }
+    }))
+}
+
+function VolumeMute() {
+    const icon = Widget.Icon({
+        class_name: "volume",
+    })
+
+    const revealer = Widget.Revealer({
+        transition: "slide_up",
+        child: icon,
+    })
+
+    let count = 0
+    let mute = audio.speaker?.is_muted ?? false
+
+    return revealer.hook(audio.speaker, () => Utils.idle(() => {
+        if (mute !== audio.speaker?.is_muted) {
+            mute = audio.speaker!.is_muted
+            icon.icon = icons.audio.volume[mute ? "muted" : "high"]
             revealer.reveal_child = true
             count++
 
@@ -106,6 +138,12 @@ export default (monitor: number) => Widget.Window({
                 vpack: microphone.pack.v.bind(),
                 child: MicrophoneMute(),
             }),
+            Widget.Box({
+                hpack: volume.pack.h.bind(),
+                vpack: volume.pack.v.bind(),
+                child: VolumeMute(),
+            }),
+
         ),
     }),
 })
