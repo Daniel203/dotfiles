@@ -3,19 +3,16 @@ Personal repository to store config files
 
 ## App to install 
 ```sh
-> sudo pacman -S  playerctl sysstat acpi blueman gnome-flashback zsh neovim tmux alacritty kitty picom xclip npm telegram-desktop
+> sudo pacman -S  playerctl sysstat acpi blueman gnome-flashback zsh neovim tmux alacritty kitty picom xclip npm telegram-desktop intel-media-driver mpv zathura
+> paru -S librewolf
 ```
 
  - For hyprland 
 ```sh
-> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock xdg-desktop-portal-hyprland kanshi brightnessctl xdg-desktop-portal-gtk     
+> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock kanshi brightnessctl xdg-desktop-portal-gtk     
 > paru -S wdisplays
-```
-
- - Visualize volume/brightness change
-```sh
-> paru -S swayosd-git
-> sudo systemctl enable --now swayosd-libinput-backend.service 
+> paru -S xdg-desktop-portal-hyprland-git
+> paru -S hyprsunset
 ```
 
 ## Suggested commands
