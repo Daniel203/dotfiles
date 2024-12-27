@@ -143,4 +143,8 @@ export default {
         dark: "dark-mode-symbolic",
         light: "light-mode-symbolic",
     },
+    bluelight: {
+        enabled: "weather-clear-night-symbolic",
+        disabled: "display-brightness-symbolic",
+    },
 }

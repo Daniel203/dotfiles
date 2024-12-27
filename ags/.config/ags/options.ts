@@ -184,8 +184,8 @@ const options = mkOptions(OPTIONS, {
         },
         width: opt(380),
         position: opt<"left" | "center" | "right">("right"),
-        settings: opt(["bash", "-c","XDG_CURRENT_DESKTOP=GNOME; gnome-control-center"]),
-        networkSettings: opt(["bash", "-c","XDG_CURRENT_DESKTOP=GNOME; gnome-control-center"]),
+        settings: opt(["bash", "-c", "XDG_CURRENT_DESKTOP=GNOME; gnome-control-center"]),
+        networkSettings: opt(["bash", "-c", "XDG_CURRENT_DESKTOP=GNOME; gnome-control-center"]),
         media: {
             monochromeIcon: opt(true),
             coverSize: opt(100),
