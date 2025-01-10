@@ -52,6 +52,8 @@ const options = mkOptions(OPTIONS, {
         radius: opt(11),
     },
 
+    bluelight: opt(false, {persistent: true}),
+
     transition: opt(200),
 
     font: {

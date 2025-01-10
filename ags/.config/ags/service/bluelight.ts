@@ -1,4 +1,5 @@
 import { dependencies, sh } from "lib/utils"
+import options from "options"
 
 if (!dependencies("hyprsunset"))
     App.quit()
@@ -10,10 +11,9 @@ class BlueLight extends Service {
         })
     }
 
-    #enabled = false
 
     get enabled() {
-        return this.#enabled
+        return options.bluelight.getValue();
     }
 
     // the setter has to be in snake_case too
@@ -21,17 +21,19 @@ class BlueLight extends Service {
         const command = enabled ? "hyprsunset -t 5000" : "killall -q hyprsunset"
 
         sh(command)
+        console.log(options.bluelight.value)
+        options.bluelight.value = enabled;
+        console.log(options.bluelight.value)
 
-        this.#enabled = enabled
         this.changed("enabled")
     }
 
     constructor() {
         super()
 
-        // Set default to false
         sh("killall -q hyprsunset")
-        this.#enabled = false
+
+        this.enabled = options.bluelight.getValue();
         this.changed("enabled")
     }
 }
