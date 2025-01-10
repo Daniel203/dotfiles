@@ -1,4 +1,4 @@
 #!/bin/bash
 
-killall ags 
+ags -q
 ags &
