@@ -13,14 +13,27 @@ function up(up: number) {
     return `${h}h ${m < 10 ? "0" + m : m}m`
 }
 
-const Avatar = () => Widget.Box({
-    class_name: "avatar",
-    css: Utils.merge([image.bind(), size.bind()], (img, size) => `
-        min-width: ${size}px;
-        min-height: ${size}px;
-        background-image: url('${img}');
-        background-size: cover;
-    `),
+const Avatar = () => Widget.Button({
+    // class_name: "avatar",
+    // css: Utils.merge([image.bind(), size.bind()], (img, size) => `
+    //     min-width: ${size}px;
+    //     min-height: ${size}px;
+    //     background-image: url('${img}');
+    //     background-size: cover;
+    // `),
+    // child: Widget.Button({
+        on_clicked: () => {
+            App.closeWindow("quicksettings")
+            App.closeWindow("settings-dialog")
+            App.openWindow("settings-dialog")
+        },
+        css: Utils.merge([image.bind(), size.bind()], (img, size) => `
+            min-width: ${size}px;
+            min-height: ${size}px;
+            background-image: url('${img}');
+            background-size: cover;
+        `),
+    // })
 })
 
 const SysButton = (action: Action) => Widget.Button({
@@ -54,7 +67,7 @@ export const Header = () => Widget.Box(
         vpack: "center",
         child: Widget.Icon(icons.ui.settings),
         on_clicked: () => {
-            sh(options.quicksettings.settings.value)
+            sh(options.quicksettings.gnomeSettings.value)
             // App.closeWindow("quicksettings")
             // App.closeWindow("settings-dialog")
             // App.openWindow("settings-dialog")

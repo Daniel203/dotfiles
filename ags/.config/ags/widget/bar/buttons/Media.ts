@@ -79,7 +79,7 @@ export default () => {
         const { revealer } = content.attribute
         btn.child = content
         btn.on_primary_click = () => { player.playPause() }
-        btn.on_secondary_click = () => { player.playPause() }
+        btn.on_secondary_click = () => { player.next() }
         btn.on_scroll_up = () => { player.next() }
         btn.on_scroll_down = () => { player.previous() }
         btn.on_hover = () => { revealer.reveal_child = true }
