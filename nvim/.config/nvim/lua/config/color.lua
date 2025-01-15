@@ -1,7 +1,7 @@
 vim.opt.background = "dark"
 
 -- set colorscheme
-vim.cmd.colorscheme("catppuccin-mocha");
+vim.cmd.colorscheme("kanagawa-dragon");
 
 -- set comments in italic
 -- vim.cmd("highlight Comment cterm=italic gui=italic");
