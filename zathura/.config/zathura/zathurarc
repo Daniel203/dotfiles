@@ -1,0 +1,5 @@
+set selection-clipboard clipboard
+set scroll-step 80
+map <Right> navigate next
+map <Left> navigate previous
+set font 'monospace normal 16'

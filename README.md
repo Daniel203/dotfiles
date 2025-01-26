@@ -9,9 +9,10 @@ Personal repository to store config files
 
  - For hyprland 
 ```sh
-> sudo pacman -S swaync blueman network-manager-applet wofi hyprland hypridle hyprlock kanshi brightnessctl xdg-desktop-portal-gtk     
+> sudo pacman -S blueman network-manager-applet wofi hyprland hypridle hyprlock brightnessctl xdg-desktop-portal-gtk hyprcursor
 > paru -S xdg-desktop-portal-hyprland-git
-> paru -S hyprsunset
+> paru -S hyprsunset 
+> paru -S bibata-cursor-theme-bin 
 ```
 
 ## Suggested commands

@@ -83,6 +83,7 @@ const options = mkOptions(OPTIONS, {
                 "screenrecord",
                 "battery",
                 "system",
+                "keyboard",
             ]),
         },
         launcher: {

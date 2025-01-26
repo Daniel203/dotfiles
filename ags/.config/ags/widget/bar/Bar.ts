@@ -1,5 +1,6 @@
 import BatteryBar from "./buttons/BatteryBar"
 import ColorPicker from "./buttons/ColorPicker"
+import Keyboard from "./buttons/Keyboard"
 import Date from "./buttons/Date"
 import Launcher from "./buttons/Launcher"
 import Media from "./buttons/Media"
@@ -20,6 +21,7 @@ export type BarWidget = keyof typeof widget
 const widget = {
     battery: BatteryBar,
     colorpicker: ColorPicker,
+    keyboard: Keyboard,
     date: Date,
     launcher: Launcher,
     media: Media,
