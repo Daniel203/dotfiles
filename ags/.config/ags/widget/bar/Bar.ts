@@ -10,6 +10,7 @@ import SystemIndicators from "./buttons/SystemIndicators"
 import Taskbar from "./buttons/Taskbar"
 import Workspaces from "./buttons/Workspaces"
 import ScreenRecord from "./buttons/ScreenRecord"
+import ScreenShot from "./buttons/ScreenShot"
 import Messages from "./buttons/Messages"
 import options from "options"
 
@@ -22,6 +23,7 @@ const widget = {
     battery: BatteryBar,
     colorpicker: ColorPicker,
     keyboard: Keyboard,
+    screenshot: ScreenShot,
     date: Date,
     launcher: Launcher,
     media: Media,

@@ -9,6 +9,7 @@ import OSD from "widget/osd/OSD"
 import Overview from "widget/overview/Overview"
 import PowerMenu from "widget/powermenu/PowerMenu"
 import ScreenCorners from "widget/bar/ScreenCorners"
+import ScreenShotMenu from "widget/screenshot/ScreenShotMenu"
 import SettingsDialog from "widget/settings/SettingsDialog"
 import Verification from "widget/powermenu/Verification"
 import { forMonitors } from "lib/utils"
@@ -25,6 +26,7 @@ const createWindows = () =>
         ...forMonitors(OSD),
         Launcher(),
         Overview(),
+        ScreenShotMenu(),
         PowerMenu(),
         SettingsDialog(),
         Verification(),

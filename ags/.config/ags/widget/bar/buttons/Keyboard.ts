@@ -14,16 +14,14 @@ function getmap() {
     return "US"
 }
 
-export default function Keymap() {
-    return PanelButton({
-        class_name: "keymap",
-        cursor: "pointer",
-        child: Widget.Label({
-            label: Utils.watch(getmap(), hyprland, "keyboard-layout", () => getmap()),
-        }),
-        on_clicked: () => {
-            Utils.execAsync(`bash -c "hyprctl switchxkblayout all next"`);
-        },
-    });
-}
+export default() => PanelButton({
+    window: "keyboard",
+    cursor: "pointer",
+    child: Widget.Label({
+        label: Utils.watch(getmap(), hyprland, "keyboard-layout", () => getmap()),
+    }),
+    on_clicked: () => {
+        Utils.execAsync(`bash -c "hyprctl switchxkblayout all next"`);
+    },
+});
 

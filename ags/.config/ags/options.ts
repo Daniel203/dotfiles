@@ -79,11 +79,12 @@ const options = mkOptions(OPTIONS, {
                 "media",
                 "expander",
                 "systray",
+                "screenshot",
                 "colorpicker",
                 "screenrecord",
                 "battery",
-                "system",
                 "keyboard",
+                "system",
             ]),
         },
         launcher: {
@@ -136,6 +137,9 @@ const options = mkOptions(OPTIONS, {
         powermenu: {
             monochrome: opt(false),
             action: opt(() => App.toggleWindow("powermenu")),
+        },
+        screenshot: {
+            action: opt(() => App.toggleWindow("screenshotmenu")),
         },
     },
 
