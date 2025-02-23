@@ -9,7 +9,7 @@ Personal repository to store config files
 
  - For hyprland 
 ```sh
-> sudo pacman -S blueman network-manager-applet wofi hyprland hypridle hyprlock brightnessctl xdg-desktop-portal-gtk hyprcursor
+> sudo pacman -S blueman network-manager-applet hyprland hypridle hyprlock brightnessctl xdg-desktop-portal-gtk hyprcursor rofi rofi-calc
 > paru -S xdg-desktop-portal-hyprland-git
 > paru -S hyprsunset 
 > paru -S bibata-cursor-theme-bin 

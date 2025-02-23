@@ -1,0 +1,6 @@
+configuration {
+    font: "mono 14";
+    show-icons: true;
+}
+
+@theme "Arc-Dark"

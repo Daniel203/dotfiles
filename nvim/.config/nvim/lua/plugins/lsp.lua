@@ -119,57 +119,69 @@ local function config()
 end
 
 return {
-    "williamboman/mason.nvim",
-    dependencies = {
-        "neovim/nvim-lspconfig",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-        {
-            "hrsh7th/nvim-cmp",
-            dependencies = {
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-path",
-                "hrsh7th/cmp-cmdline",
+    {
+        "williamboman/mason.nvim",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+            {
+                "hrsh7th/nvim-cmp",
+                dependencies = {
+                    "hrsh7th/cmp-nvim-lsp",
+                    "hrsh7th/cmp-buffer",
+                    "hrsh7th/cmp-path",
+                    "hrsh7th/cmp-cmdline",
+                }
+            },
+            {
+                "L3MON4D3/LuaSnip",
+                dependencies = {
+                    "saadparwaiz1/cmp_luasnip",
+                    "rafamadriz/friendly-snippets",
+                }
+            },
+            {
+                "nvimtools/none-ls.nvim",
+                config = function()
+                    local null_ls = require("null-ls")
+
+                    local diagnostics = null_ls.builtins.diagnostics
+                    local formatting = null_ls.builtins.formatting
+
+                    null_ls.setup({
+                        sources = {
+                            formatting.prettier,
+                            -- diagnostics.eslint_d,
+                        },
+                    })
+
+                    vim.keymap.set('n', '<space>fl', function() vim.lsp.buf.format { async = true } end)
+                    vim.keymap.set('v', '<space>fl', function() vim.lsp.buf.format { async = true } end)
+                end
+            },
+            {
+                "danymat/neogen",
+                config = true,
+                keys = {
+                    { "<leader>nf", "<cmd>Neogen func<cr>",  desc = "Generate documentation for functions" },
+                    { "<leader>nc", "<cmd>Neogen class<cr>", desc = "Generate documentation for class" },
+                    { "<leader>nt", "<cmd>Neogen type<cr>",  desc = "Generate documentation for type" },
+                }
             }
+
         },
-        {
-            "L3MON4D3/LuaSnip",
-            dependencies = {
-                "saadparwaiz1/cmp_luasnip",
-                "rafamadriz/friendly-snippets",
-            }
-        },
-        {
-            "nvimtools/none-ls.nvim",
-            config = function()
-                local null_ls = require("null-ls")
 
-                local diagnostics = null_ls.builtins.diagnostics
-                local formatting = null_ls.builtins.formatting
-
-                null_ls.setup({
-                    sources = {
-                        formatting.prettier,
-                        -- diagnostics.eslint_d,
-                    },
-                })
-
-                vim.keymap.set('n', '<space>fl', function() vim.lsp.buf.format { async = true } end)
-                vim.keymap.set('v', '<space>fl', function() vim.lsp.buf.format { async = true } end)
-            end
-        },
-        { 
-            "danymat/neogen", 
-            config = true,
-            keys = {
-                { "<leader>nf", "<cmd>Neogen func<cr>", desc = "Generate documentation for functions"},
-                { "<leader>nc", "<cmd>Neogen class<cr>", desc = "Generate documentation for class"},
-                { "<leader>nt", "<cmd>Neogen type<cr>", desc = "Generate documentation for type"},  
-            }
-        }
-
+        config = config,
     },
 
-    config = config,
+    {
+        'nvim-flutter/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = true,
+    }
 }
