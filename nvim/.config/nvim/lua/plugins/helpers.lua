@@ -11,7 +11,7 @@ local harpoon_keys = {
     { "<C-A-s>",   function() require("harpoon.ui").nav_file(8) end },
 }
 
-local function indent_blankline_config()
+local indent_blankline_config = function()
     require('ibl').setup {
         whitespace = {
             -- highlight = highlight,
@@ -34,7 +34,9 @@ return {
     -- Comment
     {
         'numToStr/Comment.nvim',
-        config = function() require('Comment').setup() end
+        config = function()
+            require('Comment').setup { ignore = "^$" }
+        end
     },
 
     -- Autopairs brackets
@@ -56,12 +58,41 @@ return {
     -- Indentation lines
     {
         "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
         config = indent_blankline_config,
     },
 
-    -- show LSP server loading
-    -- {
-    --     "j-hui/fidget.nvim",
-    --     opts = {},
-    -- }
+    -- File Navigation/Edit
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
+        config = function()
+            require("oil").setup({
+                use_default_keymaps = false,
+                keymaps = {
+                    ["g?"] = { "actions.show_help", mode = "n" },
+                    ["<CR>"] = "actions.select",
+                    ["<C-l>"] = "actions.refresh",
+                    ["-"] = { "actions.parent", mode = "n" },
+                    ["_"] = { "actions.open_cwd", mode = "n" },
+                    ["`"] = { "actions.cd", mode = "n" },
+                    ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+                    ["gs"] = { "actions.change_sort", mode = "n" },
+                    ["gx"] = "actions.open_external",
+                    ["g."] = { "actions.toggle_hidden", mode = "n" },
+                    ["g\\"] = { "actions.toggle_trash", mode = "n" },
+                },
+            })
+        end
+    },
+
+    -- Maximize window
+    {
+        'declancm/maximize.nvim',
+        config = true,
+        keys = {
+            { "<leader>z", function() require("maximize").toggle() end },
+        },
+    }
 }

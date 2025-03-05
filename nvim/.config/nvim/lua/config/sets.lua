@@ -1,4 +1,4 @@
-vim.opt.nu = true
+ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.errorbells = false
 
@@ -18,6 +18,9 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 
@@ -39,7 +42,8 @@ vim.opt.colorcolumn = "100"
 vim.g.mapleader = " "
 
 -- set spell on
-vim.o.spell = false
+-- vim.o.spell = true
 
 -- global status line
 vim.o.laststatus = 3
+

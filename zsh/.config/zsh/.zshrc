@@ -79,4 +79,9 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 
 # NVM 
-source $HOME/.config/nvm/nvm.sh
+# source $HOME/.config/nvm/nvm.sh
+
+# GOLANG
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH=$HOME/go
+export PATH="$PATH:$GOPATH/bin"

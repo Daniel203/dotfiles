@@ -15,3 +15,7 @@ export LIBVA_DRIVER_NAME=iHD
 export MOZ_DISABLE_RDD_SANDBOX=1
 export MOZ_X11_EGL=1
 # export MOZ_ENABLE_WAYLAND=1
+. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.config/nvm" 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

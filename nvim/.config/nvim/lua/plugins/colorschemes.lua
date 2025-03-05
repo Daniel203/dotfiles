@@ -1,6 +1,14 @@
 local function gruvbox_config()
-    vim.g.gruvbox_contrast_dark = "hard"
-    vim.g.gruvbox_contrast_light = "hard"
+    require("gruvbox").setup({
+        italic = {
+            strings = false,
+            emphasis = false,
+            comments = false,
+            operators = false,
+            folds = true,
+        },
+        contrast = "hard"
+    })
 end
 
 local function rose_pine_config()
@@ -16,33 +24,48 @@ local function kanagawa_config()
     })
 end
 
+local function catppuccin_config()
+    require("catppuccin").setup({
+        color_overrides = {
+            macchiato = {
+                base = "#000000",
+                mantle = "#000000",
+                crust = "#000000",
+            },
+        },
+        no_italic = true
+    })
+end
+
 return {
     {
         "embark-theme/vim",
-        lazy = true,
     },
     {
         "folke/tokyonight.nvim",
-        lazy = true,
     },
     {
         "catppuccin/nvim",
-        lazy = true,
+        config = catppuccin_config
     },
     {
         "rebelot/kanagawa.nvim",
-        lazy = true,
         config = kanagawa_config,
     },
     {
-        lazy = true,
-        "gruvbox-community/gruvbox",
+        "ellisonleao/gruvbox.nvim",
         config = gruvbox_config,
     },
     {
         "rose-pine/neovim",
-        lazy = true,
         priority = 1000,
         config = rose_pine_config,
     },
+    {
+        "marko-cerovac/material.nvim"
+    },
+    {
+        "Mofiqul/vscode.nvim"
+    }
+
 }

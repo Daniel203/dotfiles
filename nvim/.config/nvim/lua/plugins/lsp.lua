@@ -1,9 +1,8 @@
 local function config()
     local lspconfig = require('lspconfig')
-    local luasnip = require("luasnip")
     local cmp = require 'cmp'
+    local luasnip = require("luasnip")
 
-    require("luasnip.loaders.from_vscode").lazy_load()
     require('mason').setup({})
 
     require('mason-lspconfig').setup_handlers({
@@ -83,7 +82,7 @@ local function config()
     cmp.setup({
         snippet = {
             expand = function(args)
-                require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
             end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -157,6 +156,15 @@ return {
                 vim.keymap.set('v', '<space>fl', function() vim.lsp.buf.format { async = true } end)
             end
         },
+        {
+            "danymat/neogen",
+            config = true,
+            keys = {
+                { "<leader>nf", "<cmd>Neogen func<cr>",  desc = "Generate documentation for functions" },
+                { "<leader>nc", "<cmd>Neogen class<cr>", desc = "Generate documentation for class" },
+                { "<leader>nt", "<cmd>Neogen type<cr>",  desc = "Generate documentation for type" },
+            }
+        }
     },
 
     config = config,
