@@ -36,6 +36,7 @@ local function config()
         }
     })
 
+
     lspconfig.tsserver.setup({
         -- capabilities = capabilities,
         on_attach = function(client)
@@ -45,6 +46,8 @@ local function config()
             diagnostics = { ignoredCodes = { 6133, 80001 } } -- Ignore "unused variable" and "convert to ES6 module" errors
         }
     })
+
+    lspconfig.dartls.setup({ })
 
     -- Setup diagnostics
     vim.diagnostic.config({
