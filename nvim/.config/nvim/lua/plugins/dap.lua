@@ -3,7 +3,6 @@ local dap_dependencies = {
     "rcarriga/nvim-dap-ui",
     "nvim-neotest/nvim-nio",
     "nvim-telescope/telescope-dap.nvim",
-    "rcarriga/cmp-dap",
     "jay-babu/mason-nvim-dap.nvim",
 }
 
@@ -21,7 +20,7 @@ local function dap_ui_config()
         layouts = {
             {
                 elements = {
-                    { id = 'scopes', size = 0.50 },
+                    { id = 'scopes',  size = 0.50 },
                     { id = 'watches', size = 0.50 },
                 },
                 position = 'left',
@@ -133,7 +132,7 @@ return {
     },
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = {"nvim-dap-virtual-text", "mfussenegger/nvim-dap" },
+        dependencies = { "nvim-dap-virtual-text", "mfussenegger/nvim-dap" },
         config = dap_ui_config,
     }
 }

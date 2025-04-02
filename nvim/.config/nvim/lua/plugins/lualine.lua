@@ -1,4 +1,4 @@
-local function lualine_config() 
+local function lualine_config()
     require("lualine").setup {
         options = {
             section_separators = '',
@@ -7,7 +7,8 @@ local function lualine_config()
         extensions = {
             "quickfix",
             "fugitive",
-            "nvim-tree",
+            "nvim-dap-ui",
+            "oil",
         }
     }
 end

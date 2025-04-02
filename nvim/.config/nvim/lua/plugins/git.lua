@@ -20,7 +20,7 @@ local function copilot_settings()
     vim.g.copilot_no_tab_map = true
     vim.g.copilot_assume_mapped = true
     vim.g.copilot_enabled = false
-    vim.g.copilot_filetypes = {markdown = true}
+    vim.g.copilot_filetypes = { markdown = true }
     vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 end
 

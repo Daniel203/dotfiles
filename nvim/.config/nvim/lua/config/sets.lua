@@ -1,4 +1,4 @@
- vim.opt.nu = true
+vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.errorbells = false
 
@@ -46,4 +46,3 @@ vim.g.mapleader = " "
 
 -- global status line
 vim.o.laststatus = 3
-

@@ -5,32 +5,34 @@ local telescope_remaps = {
     { "<leader>fb", function() require("telescope.builtin").buffers() end },
     { "<leader>fh", function() require("telescope.builtin").help_tags() end },
     { "<leader>sw", function() require("telescope.builtin").grep_string() end },
-    { "<leader>fd", function() require("telescope.builtin").diagnostics() end } ,
+    { "<leader>fd", function() require("telescope.builtin").diagnostics() end },
     { "<leader>ds", function() require("telescope.builtin").lsp_document_symbols() end },
 
-    { 
+    {
         "<leader>gr", function()
-            require("telescope.builtin").lsp_references({
-                show_line = false,
-                include_declaration = true,
-                layout_strategy = "vertical",
-                layout_config = { width = 0.6 }
-            }) end
+        require("telescope.builtin").lsp_references({
+            show_line = false,
+            include_declaration = true,
+            layout_strategy = "vertical",
+            layout_config = { width = 0.6 }
+        })
+    end
     },
-    { 
-        "<leader>ws", function ()
-            require("telescope.builtin").lsp_dynamic_workspace_symbols({
-                show_line = false,
-            }) end
+    {
+        "<leader>ws", function()
+        require("telescope.builtin").lsp_dynamic_workspace_symbols({
+            show_line = false,
+        })
+    end
     },
 }
 
-local telescope_config = function() 
+local telescope_config = function()
     local actions = require("telescope.actions")
 
     require("telescope").setup({
         defaults = {
-            file_ignore_patterns = {"node_modules", "bin", "obj", "dll", "dist", "packages", "target", "docs"},
+            file_ignore_patterns = { "node_modules", "bin", "obj", "dll", "dist", "packages", "target", "docs" },
             vimgrep_arguments = {
                 'rg',
                 '--color=never',
@@ -71,6 +73,6 @@ return {
             "nvim-telescope/telescope-fzy-native.nvim",
         },
         keys = telescope_remaps,
-        init = telescope_config,   
+        init = telescope_config,
     },
 }
