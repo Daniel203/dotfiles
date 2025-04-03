@@ -40,7 +40,7 @@ autocmd('LspAttach', {
 })
 
 -- Virtual text
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({ virtual_text = true, severity_sort = true })
 
 -- Enter to accept auto-completion
 vim.cmd("inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'")
