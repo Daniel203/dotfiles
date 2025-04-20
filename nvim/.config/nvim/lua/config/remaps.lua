@@ -1,5 +1,5 @@
 -- Toggle explorer
-vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>");
+vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>");
 
 -- Undotree
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")

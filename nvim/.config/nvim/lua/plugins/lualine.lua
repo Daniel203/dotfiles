@@ -7,7 +7,8 @@ local function lualine_config()
         extensions = {
             "quickfix",
             "fugitive",
-            "nvim-tree",
+            "nvim-dap-ui",
+            "oil",
         }
     }
 end

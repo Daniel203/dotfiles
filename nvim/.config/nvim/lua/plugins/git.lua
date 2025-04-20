@@ -6,11 +6,6 @@ local git_worktree_keys = {
 local function git_signs_config()
     require('gitsigns').setup {
         signs = {
-            -- add = { text = '+' },
-            -- change = { text = '~' },
-            -- delete = { text = '_' },
-            -- topdelete = { text = '‾' },
-            -- changedelete = { text = '~' },
             add          = { text = '│' },
             change       = { text = '│' },
             delete       = { text = '_' },
