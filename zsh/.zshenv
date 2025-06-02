@@ -15,6 +15,8 @@ export LIBVA_DRIVER_NAME=iHD
 export VDPAU_DRIVER=va_gl
 export MOZ_DISABLE_RDD_SANDBOX=1
 export MOZ_X11_EGL=1
-# export MOZ_ENABLE_WAYLAND=1
-#
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
+# JAVA
+export JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+export PATH=$JAVA_HOME/bin:$PATH

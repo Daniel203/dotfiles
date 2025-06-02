@@ -5,6 +5,7 @@ vim.lsp.enable({
     "gopls",
     "lua-language-server",
     "dartls",
+    "java-language-server"
 })
 
 -- Attach lsp
