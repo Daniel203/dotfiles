@@ -16,6 +16,15 @@ local function kanagawa_config()
     })
 end
 
+local function kanso_config()
+    require("kanso").setup({
+        background = {               
+            dark = "ink",           
+            light = "pearl"        
+        },
+    })
+end
+
 return {
     "embark-theme/vim",
     "ayu-theme/ayu-vim",
@@ -39,4 +48,9 @@ return {
         priority = 1000,
         config = rose_pine_config,
     },
+    {
+        "webhooked/kanso.nvim",
+        config = kanso_config,
+    },
+    
 }
