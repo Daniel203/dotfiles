@@ -30,24 +30,37 @@ local function indent_blankline_config()
     }
 end
 
-return {
-    -- Comment
-    {
-        'numToStr/Comment.nvim',
-        config = function() require('Comment').setup() end
-    },
+local function oil_config() 
+    require("oil").setup({
+        use_default_keymaps = false,
+        keymaps = {
+            ["g?"] = { "actions.show_help", mode = "n" },
+            ["<CR>"] = "actions.select",
+            ["<C-l>"] = "actions.refresh",
+            ["-"] = { "actions.parent", mode = "n" },
+            ["_"] = { "actions.open_cwd", mode = "n" },
+            ["`"] = { "actions.cd", mode = "n" },
+            ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+            ["gs"] = { "actions.change_sort", mode = "n" },
+            ["gx"] = "actions.open_external",
+            ["g."] = { "actions.toggle_hidden", mode = "n" },
+            ["g\\"] = { "actions.toggle_trash", mode = "n" },
+        },
+        view_options = {
+            show_hidden = true,
+        }
+    })
+end
 
+return {
     -- Autopairs brackets
     {
         "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
+        config = function() require("nvim-autopairs").setup({map_cr = true}) end
     },
 
     -- Undotree
     "mbbill/undotree",
-
-    --Zen mode
-    "folke/zen-mode.nvim",
 
     -- Harpoon
     {
@@ -70,11 +83,7 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
+        opts = { }
     },
     
     -- File Navigation/Edit
@@ -82,27 +91,7 @@ return {
         'stevearc/oil.nvim',
         opts = {},
         dependencies = { { "echasnovski/mini.icons", opts = {} } },
-        config = function()
-            require("oil").setup({
-                use_default_keymaps = false,
-                keymaps = {
-                    ["g?"] = { "actions.show_help", mode = "n" },
-                    ["<CR>"] = "actions.select",
-                    ["<C-l>"] = "actions.refresh",
-                    ["-"] = { "actions.parent", mode = "n" },
-                    ["_"] = { "actions.open_cwd", mode = "n" },
-                    ["`"] = { "actions.cd", mode = "n" },
-                    ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
-                    ["gs"] = { "actions.change_sort", mode = "n" },
-                    ["gx"] = "actions.open_external",
-                    ["g."] = { "actions.toggle_hidden", mode = "n" },
-                    ["g\\"] = { "actions.toggle_trash", mode = "n" },
-                },
-                view_options = {
-                    show_hidden = true,
-                }
-            })
-        end
+        config = oil_config,
     },
 
     -- Change theme based on system theme
@@ -118,6 +107,13 @@ return {
             update_interval = 3000,
             fallback = "dark"
         },
-    }
+    },
+
+    -- todo comments
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = { }
+    },
 
 }

@@ -7,4 +7,3 @@ return {
         keymap = { preset = "enter" },
     },
 }
-

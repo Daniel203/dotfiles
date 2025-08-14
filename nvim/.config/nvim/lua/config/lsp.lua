@@ -1,14 +1,4 @@
--- INFO: to get help on configurations: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs
-
--- Enable lsp servers
-vim.lsp.enable({
-    "gopls",
-    "lua-language-server",
-    "dartls",
-    "java-language-server"
-})
-
--- Attach lsp
+-- -- Attach lsp
 local autocmd = vim.api.nvim_create_autocmd
 autocmd('LspAttach', {
     callback = function(ev)
@@ -31,18 +21,11 @@ autocmd('LspAttach', {
 
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-        -- Still doesn't work as expected, so using blink.cmp
-        -- if client:supports_method('textDocument/completion') then
-            -- vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
-        -- end
+        if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
+        end
     end,
 })
 
 -- Virtual text
 vim.diagnostic.config({ virtual_text = true, severity_sort = true })
-
--- Enter to accept auto-completion
-vim.cmd("inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'")
-
-vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities(), })
-
