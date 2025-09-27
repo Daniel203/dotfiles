@@ -23,6 +23,7 @@ alias ll="ls -al"
 alias ls="ls -p"
 alias ..="cd .."
 alias zsh="TERM='xterm-256color' ssh"
+# alias ssh="kitty +kitten ssh"  # fix some issues with kitty + ssh
 
 # hdmi audio output alias
 alias hao="pactl set-card-profile 0 output:hdmi-stereo"

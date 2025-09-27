@@ -52,5 +52,4 @@ return {
         "webhooked/kanso.nvim",
         config = kanso_config,
     },
-    
 }

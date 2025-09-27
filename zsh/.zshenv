@@ -24,5 +24,6 @@ export MOZ_X11_EGL=1
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # JAVA
-export JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+# export JAVA_HOME=/usr/lib/jvm/java-24-openjdk
+export JAVA_HOME=/usr/lib/jvm/default  # set by archlinux-java
 export PATH=$JAVA_HOME/bin:$PATH
