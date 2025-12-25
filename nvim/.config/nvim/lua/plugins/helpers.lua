@@ -25,12 +25,12 @@ local function indent_blankline_config()
             -- highlight = highlight,
             remove_blankline_trail = false,
         },
-        indent = { char = '┆', },
+        -- indent = { char = '┆', },
         scope = { enabled = false },
     }
 end
 
-local function oil_config() 
+local function oil_config()
     require("oil").setup({
         use_default_keymaps = false,
         keymaps = {
@@ -56,7 +56,7 @@ return {
     -- Autopairs brackets
     {
         "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup({map_cr = true}) end
+        config = function() require("nvim-autopairs").setup({ map_cr = true }) end
     },
 
     -- Undotree
@@ -70,10 +70,10 @@ return {
     },
 
     -- Indentation lines
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        config = indent_blankline_config,
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     config = indent_blankline_config,
+    -- },
 
     -- Markdown
     ({
@@ -83,9 +83,9 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = { }
+        opts = {}
     },
-    
+
     -- File Navigation/Edit
     {
         'stevearc/oil.nvim',
@@ -100,11 +100,13 @@ return {
         opts = {
             set_dark_mode = function()
                 vim.api.nvim_set_option_value("background", "dark", {})
+                vim.cmd.colorscheme("monokai-pro-spectrum");
             end,
             set_light_mode = function()
                 vim.api.nvim_set_option_value("background", "light", {})
+                vim.cmd.colorscheme("github_light_high_contrast");
             end,
-            update_interval = 3000,
+            update_interval = 1000,
             fallback = "dark"
         },
     },
@@ -113,7 +115,7 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = { }
+        opts = {}
     },
 
 }

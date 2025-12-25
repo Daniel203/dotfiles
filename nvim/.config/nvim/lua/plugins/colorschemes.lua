@@ -18,12 +18,17 @@ end
 
 local function kanso_config()
     require("kanso").setup({
-        background = {               
-            dark = "ink",           
-            light = "pearl"        
+        background = {
+            dark = "ink",
+            light = "pearl"
         },
     })
 end
+
+local function monokai_config()
+    require("monokai-pro").setup()
+end
+
 
 return {
     "embark-theme/vim",
@@ -52,4 +57,10 @@ return {
         "webhooked/kanso.nvim",
         config = kanso_config,
     },
+
+    {
+        "loctvl842/monokai-pro.nvim",
+        config = monokai_config
+    }
+
 }
