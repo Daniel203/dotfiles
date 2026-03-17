@@ -100,11 +100,11 @@ return {
         opts = {
             set_dark_mode = function()
                 vim.api.nvim_set_option_value("background", "dark", {})
-                vim.cmd.colorscheme("monokai-pro-spectrum");
+                vim.cmd.colorscheme("base16-gruvbox-dark-hard");
             end,
             set_light_mode = function()
                 vim.api.nvim_set_option_value("background", "light", {})
-                vim.cmd.colorscheme("github_light_high_contrast");
+                vim.cmd.colorscheme("base16-gruvbox-light-hard");
             end,
             update_interval = 1000,
             fallback = "dark"
