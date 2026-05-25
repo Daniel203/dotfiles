@@ -38,8 +38,8 @@ return {
     },
 
     -- Copilot
-    {
-        "github/copilot.vim",
-        config = copilot_settings ,
-    },
+    -- {
+    --     "github/copilot.vim",
+    --     config = copilot_settings ,
+    -- },
 }

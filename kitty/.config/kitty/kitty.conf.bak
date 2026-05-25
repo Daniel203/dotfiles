@@ -1,7 +1,5 @@
 font_size         18
-
-# theme
-include themes/kanagawa_dragon.conf
+# modify_font cell_height 110%
 
 # general configuration
 enable_audio_bell no
@@ -12,7 +10,7 @@ confirm_os_window_close 0
 
 # To choose the font `kitten choose-fonts`
 # BEGIN_KITTY_FONTS
-font_family      family="CaskaydiaMono Nerd Font Mono Light"
+font_family      family="Adwaita Mono"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -20,6 +18,6 @@ bold_italic_font auto
 
 
 # BEGIN_KITTY_THEME
-# Kanso Mist
+# Kanso Ink
 include current-theme.conf
 # END_KITTY_THEME

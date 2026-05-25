@@ -118,4 +118,11 @@ return {
         opts = {}
     },
 
+    -- Zen mode
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+        }
+    }
+
 }

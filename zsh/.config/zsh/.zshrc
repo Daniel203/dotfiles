@@ -63,6 +63,9 @@ bindkey -v
 export KEYTIMEOUT=1
 autoload -Uz cursor_mode; cursor_mode  # change cursor type
 
+# RUBY
+export PATH="$PATH:$HOME/.config/local/share/gem/ruby/3.4.0/bin"
+
 # set keyboard "speed"
 xset r rate 300 50
 
@@ -75,3 +78,6 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 # reverse the suggestion list with S-Tab
 bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+# Hyprlock 
+export PATH="$HOME/.local/bin:$PATH"

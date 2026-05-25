@@ -1,5 +1,5 @@
 local function treesitter_config()
-    require("nvim-treesitter.configs").setup {
+    require("nvim-treesitter.config").setup {
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,
@@ -23,6 +23,7 @@ end
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main";
         config = treesitter_config,
     },
     {
