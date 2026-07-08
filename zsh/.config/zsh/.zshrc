@@ -23,7 +23,7 @@ alias ll="ls -al"
 alias ls="ls -p"
 alias ..="cd .."
 alias zsh="TERM='xterm-256color' ssh"
-# alias ssh="kitty +kitten ssh"  # fix some issues with kitty + ssh
+alias loadconda='source /opt/miniconda3/etc/profile.d/conda.sh'
 
 # hdmi audio output alias
 alias hao="pactl set-card-profile 0 output:hdmi-stereo"
@@ -71,7 +71,6 @@ xset r rate 300 50
 
 # reverse search
 bindkey -v
-bindkey '^r' history-incremental-search-backward
 
 # tmux-sessionizer
 bindkey -s ^f "tmux-sessionizer\n"
@@ -81,3 +80,33 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 # Hyprlock 
 export PATH="$HOME/.local/bin:$PATH"
+
+
+# Toggle wifi powersave mode
+wifi-powersave-toggle() {
+    file="/etc/NetworkManager/conf.d/wifi-powersave.conf"
+
+    if [ ! -f "$file" ]; then
+        echo "Config not found, creating default (disabled)..."
+        echo -e "[connection]\nwifi.powersave=2" | sudo tee "$file" >/dev/null
+    fi
+
+    current=$(grep -oP 'wifi\.powersave\s*=\s*\K[0-9]' "$file")
+
+    if [ "$current" = "2" ]; then
+        echo "Switching Wi-Fi power save → ENABLED (3)"
+        sudo sed -i 's/wifi.powersave=2/wifi.powersave=3/' "$file"
+    else
+        echo "Switching Wi-Fi power save → DISABLED (2)"
+        sudo sed -i 's/wifi.powersave=3/wifi.powersave=2/' "$file"
+    fi
+
+    sudo systemctl restart NetworkManager
+}
+
+wifi-powersave-status() {
+    file="/etc/NetworkManager/conf.d/wifi-powersave.conf"
+    echo "Config file: $file"
+    grep wifi.powersave "$file"
+}
+

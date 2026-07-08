@@ -1,37 +1,45 @@
-local function treesitter_config()
-    require("nvim-treesitter.config").setup {
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
-        auto_install = true,
-        indent = { enable = true },
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "<CR>",
-                node_incremental = "<CR>",
-                scope_incremental = "<TAB>",
-                node_decremental = "<S-TAB>",
-            },
-        },
-    }
-end
-
-
+-- local function treesitter_config()
+--     require("nvim-treesitter.config").setup {
+--         highlight = {
+--             enable = true,
+--             additional_vim_regex_highlighting = false,
+--         },
+--         auto_install = true,
+--         indent = { enable = true },
+--         incremental_selection = {
+--             enable = true,
+--             keymaps = {
+--                 init_selection = "<CR>",
+--                 node_incremental = "<CR>",
+--                 scope_incremental = "<TAB>",
+--                 node_decremental = "<S-TAB>",
+--             },
+--         },
+--     }
+-- end
+--
+--
+--
+-- return {
+--     {
+--         "nvim-treesitter/nvim-treesitter",
+--         branch = "main";
+--         config = treesitter_config,
+--     },
+--     {
+--         "nvim-treesitter/nvim-treesitter-context",
+--         config = function()
+--             require 'treesitter-context'.setup {
+--                 max_lines = 6,
+--             }
+--         end
+--     }
+-- }
+--
 
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        branch = "main";
-        config = treesitter_config,
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-context",
-        config = function()
-            require 'treesitter-context'.setup {
-                max_lines = 6,
-            }
-        end
-    }
+    "https://github.com/arborist-ts/arborist.nvim",
+    config = function ()
+        require("arborist").setup({})
+    end
 }
