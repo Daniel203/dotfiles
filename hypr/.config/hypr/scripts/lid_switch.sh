@@ -1,33 +1,32 @@
-#!/bin/bash
-LID_STATE="$1"
+#!/usr/bin/env bash
+set -u
 
-EXTERNAL_CONNECTED=$(hyprctl monitors | grep -v "eDP-1" | grep -c "Monitor")
+LID_STATE="${1:-}"
+LAPTOP_MONITOR="eDP-1"
 
-if [ "$LID_STATE" == "off" ]; then
-    if [ "$EXTERNAL_CONNECTED" -gt 0 ]; then
-        current_ws=$(hyprctl monitors -j | jq -r '.[] | select(.name=="eDP-1") | .activeWorkspace.id')
-        hyprctl keyword monitor "eDP-1, disable"
-        if [ -n "$current_ws" ] && [ "$current_ws" != "null" ]; then
-            base_ws=$((current_ws % 10))
-            if [ "$base_ws" -eq 0 ]; then base_ws=10; fi
-            hyprctl dispatch workspace "$base_ws"
-        fi
-    fi
-elif [ "$LID_STATE" == "on" ]; then
-    # Re-enable the monitor AND force the physical backlight on
-    hyprctl keyword monitor "eDP-1, 1920x1080, 0x0, 1"
-    hyprctl dispatch dpms on
-    
-    if [ "$EXTERNAL_CONNECTED" -gt 0 ]; then
-        (
-            sleep 1
-            current_ws=$(hyprctl monitors -j | jq -r '.[] | select(.name=="eDP-1") | .activeWorkspace.id')
-            
-            if [ -n "$current_ws" ] && [ "$current_ws" != "null" ]; then
-                base_ws=$((current_ws % 10))
-                if [ "$base_ws" -eq 0 ]; then base_ws=10; fi
-                ~/.config/hypr/scripts/multi-monitor-workspaces.sh "$base_ws"
+# An external monitor must already be enabled before disabling the laptop panel.
+external_connected=$(hyprctl monitors -j | jq --arg laptop "$LAPTOP_MONITOR" 'any(.[]; .name != $laptop)') || exit 1
+
+case "$LID_STATE" in
+    off)
+        if [[ "$external_connected" == "true" ]]; then
+            current_ws=$(hyprctl monitors -j | jq -r --arg laptop "$LAPTOP_MONITOR" '.[] | select(.name == $laptop) | .activeWorkspace.id') || exit 1
+            hyprctl eval "hl.monitor({ output = \"$LAPTOP_MONITOR\", disabled = true })" || exit 1
+
+            if [[ "$current_ws" =~ ^[1-9][0-9]*$ ]]; then
+                base_ws=$(( (current_ws - 1) % 10 + 1 ))
+                hyprctl dispatch "hl.dsp.focus({ workspace = \"$base_ws\" })"
             fi
-        ) &
-    fi
-fi
+        fi
+        ;;
+    on)
+        # Preserve the previously used display mode until we migrate to a
+        # DMS-aware monitor restore operation in a separate change.
+        hyprctl eval "hl.monitor({ output = \"$LAPTOP_MONITOR\", disabled = false, mode = \"1920x1080\", position = \"0x0\", scale = 1 })" || exit 1
+        hyprctl dispatch 'hl.dsp.dpms({ action = "on" })'
+        ;;
+    *)
+        printf 'Usage: %s on|off\n' "$0" >&2
+        exit 2
+        ;;
+esac

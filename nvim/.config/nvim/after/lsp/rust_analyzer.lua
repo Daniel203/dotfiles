@@ -7,7 +7,6 @@ return {
             diagnostics = {
                 enable = true,
             }
-
         }
     }
 }

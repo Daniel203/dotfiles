@@ -1,0 +1,10 @@
+-- Equivalent of the original exec-once directives; only runs on compositor start.
+hl.on("hyprland.start", function()
+    hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("systemctl --user start gsd-rfkill.service")
+    hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+    hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/monitor-listener.sh")
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")
+end)

@@ -1,29 +1,37 @@
+# --- XDG DIRECTORIES ---
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
 
-export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
-export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
-
-export HISTFILE="$ZDOTDIR/.zshhistory"   # History file path
-export HISTSIZE=10000                   # Maximum events for internal history
-export SAVEHIST=10000                   # Maximum events in history file
-
+# --- DEFAULT APPLICATIONS ---
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# Intel iGpu
+# --- PATH & ENVIRONMENT VARIABLES ---
+# User Local Bins
+export PATH="$HOME/.local/bin:$PATH"
+
+# Java
+export JAVA_HOME="/usr/lib/jvm/default"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# Flutter
+export PATH="$PATH:$HOME/Tools/flutter/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
+# Rust / Cargo
+export PATH="$PATH:$HOME/.cargo/bin"
+
+# Ruby
+export PATH="$PATH:$HOME/.config/local/share/gem/ruby/3.4.0/bin"
+
+# Hardware / Driver / App Flags
 # export LIBVA_DRIVER_NAME=iHD
 # export VDPAU_DRIVER=va_gl
-
-# AMD iGpu
 # export LIBVA_DRIVER_NAME=radeonsi
 # export VDPAU_DRIVER=radeonsi
-
 export MOZ_DISABLE_RDD_SANDBOX=1
 export MOZ_X11_EGL=1
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-
-# JAVA
-# export JAVA_HOME=/usr/lib/jvm/java-24-openjdk
-export JAVA_HOME=/usr/lib/jvm/default  # set by archlinux-java
-export PATH=$JAVA_HOME/bin:$PATH
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"

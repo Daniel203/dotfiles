@@ -2,6 +2,9 @@ local function config()
     require("mason-lspconfig").setup {
         automatic_enable = true
     }
+
+    vim.lsp.enable("dartls")
+
 end
 
 return {
